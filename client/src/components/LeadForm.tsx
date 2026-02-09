@@ -162,14 +162,17 @@ export function LeadForm({
           <select
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
-            className={inputClass}
+            className={`${inputClass} appearance-none bg-no-repeat bg-[length:16px] bg-[position:right_12px_center]`}
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='${isDark || isGlass ? 'white' : '%23666'}' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+            }}
             data-testid={`lead-${source}-budget`}
           >
-            <option value="">Monthly Ad Budget</option>
-            <option value="Under 5L">Under 5 Lakhs</option>
-            <option value="5L - 10L">5 - 10 Lakhs</option>
-            <option value="10L - 20L">10 - 20 Lakhs</option>
-            <option value="20L+">20 Lakhs+</option>
+            <option value="" style={{ background: isDark || isGlass ? "#1a1a2e" : "#fff", color: isDark || isGlass ? "#ccc" : "#666" }}>Monthly Ad Budget</option>
+            <option value="Under 5L" style={{ background: isDark || isGlass ? "#1a1a2e" : "#fff", color: isDark || isGlass ? "#fff" : "#333" }}>Under 5 Lakhs</option>
+            <option value="5L - 10L" style={{ background: isDark || isGlass ? "#1a1a2e" : "#fff", color: isDark || isGlass ? "#fff" : "#333" }}>5 - 10 Lakhs</option>
+            <option value="10L - 20L" style={{ background: isDark || isGlass ? "#1a1a2e" : "#fff", color: isDark || isGlass ? "#fff" : "#333" }}>10 - 20 Lakhs</option>
+            <option value="20L+" style={{ background: isDark || isGlass ? "#1a1a2e" : "#fff", color: isDark || isGlass ? "#fff" : "#333" }}>20 Lakhs+</option>
           </select>
         )}
 
