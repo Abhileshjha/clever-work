@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { SiWhatsapp } from "react-icons/si";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -24,82 +24,83 @@ export function Navigation() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border py-3"
+          ? "bg-background/95 backdrop-blur-md border-b border-border py-3"
           : "bg-transparent py-5"
       }`}
       data-testid="nav-main"
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 cursor-pointer" data-testid="link-logo">
-          <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between gap-4">
+        <a href="#" className="flex items-center gap-2 shrink-0" data-testid="link-logo" style={{ textDecoration: 'none' }}>
+          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
             <span className="text-sm font-bold text-primary-foreground">TC</span>
           </div>
-          <span className="text-lg font-bold tracking-tight">
+          <span className="text-lg font-bold tracking-tight text-foreground">
             The Clever Work
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="text-sm text-muted-foreground font-medium transition-colors"
               style={{ textDecoration: "none" }}
+              data-testid={`link-nav-${link.label.toLowerCase()}`}
             >
               {link.label}
             </a>
           ))}
           <a
-            href="https://wa.me/918766350093"
+            href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold transition-all"
+            className="trk-btn trk-btn--primary !py-2.5 !px-6 !text-sm"
             data-testid="link-lets-talk"
           >
+            <SiWhatsapp className="w-4 h-4" />
             Let's Talk
           </a>
         </div>
 
         <button
-          className="md:hidden p-2"
+          className="md:hidden p-2 text-foreground"
           onClick={() => setIsOpen(!isOpen)}
           data-testid="button-mobile-menu"
         >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card border-b border-border"
-          >
-            <div className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-base font-medium text-muted-foreground"
-                >
-                  {link.label}
-                </a>
-              ))}
+      {isOpen && (
+        <div className="md:hidden bg-card/95 backdrop-blur-md border-b border-border">
+          <div className="flex flex-col p-6 gap-4">
+            {navLinks.map((link) => (
               <a
-                href="https://wa.me/918766350093"
-                className="mt-2 w-full text-center px-5 py-3 rounded-full bg-primary text-primary-foreground font-bold"
+                key={link.href}
+                href={link.href}
                 onClick={() => setIsOpen(false)}
+                className="text-base font-medium text-muted-foreground"
+                style={{ textDecoration: "none" }}
+                data-testid={`link-mobile-${link.label.toLowerCase()}`}
               >
-                Let's Talk
+                {link.label}
               </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <a
+              href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="trk-btn trk-btn--primary justify-center mt-2"
+              onClick={() => setIsOpen(false)}
+              data-testid="link-mobile-whatsapp"
+            >
+              <SiWhatsapp className="w-4 h-4" />
+              Let's Talk
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

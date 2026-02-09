@@ -15,42 +15,42 @@
   --font-display: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  --background: 220 20% 6%;
+  --background: 230 15% 8%;
   --foreground: 0 0% 95%;
 
-  --card: 220 20% 10%;
+  --card: 230 12% 12%;
   --card-foreground: 0 0% 95%;
-  --card-border: 220 10% 18%;
+  --card-border: 230 10% 18%;
 
-  --popover: 220 20% 8%;
+  --popover: 230 12% 10%;
   --popover-foreground: 0 0% 95%;
-  --popover-border: 220 10% 18%;
+  --popover-border: 230 10% 18%;
 
   --primary: 142 70% 45%;
-  --primary-foreground: 0 0% 100%;
+  --primary-foreground: 0 0% 5%;
 
-  --secondary: 220 14% 16%;
+  --secondary: 230 14% 16%;
   --secondary-foreground: 0 0% 95%;
 
-  --muted: 220 14% 14%;
-  --muted-foreground: 220 10% 55%;
+  --muted: 230 14% 14%;
+  --muted-foreground: 230 10% 55%;
 
-  --accent: 220 14% 16%;
+  --accent: 230 14% 16%;
   --accent-foreground: 0 0% 95%;
 
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 220 10% 16%;
-  --input: 220 10% 18%;
+  --border: 230 10% 16%;
+  --input: 230 10% 18%;
   --ring: 142 70% 45%;
 
-  --sidebar: 220 20% 8%;
+  --sidebar: 230 15% 8%;
   --sidebar-foreground: 0 0% 95%;
-  --sidebar-border: 220 10% 16%;
+  --sidebar-border: 230 10% 16%;
   --sidebar-primary: 142 70% 45%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 220 14% 16%;
+  --sidebar-accent: 230 14% 16%;
   --sidebar-accent-foreground: 0 0% 95%;
   --sidebar-ring: 142 70% 45%;
 
@@ -61,14 +61,14 @@
   --chart-5: 340 75% 55%;
 
   --radius: .5rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(220 20% 6% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(220 20% 6% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 1px 2px -1px hsl(220 20% 6% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 1px 2px -1px hsl(220 20% 6% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 2px 4px -1px hsl(220 20% 6% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 4px 6px -1px hsl(220 20% 6% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 8px 10px -1px hsl(220 20% 6% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(220 20% 6% / 0.00);
+  --shadow-2xs: 0px 2px 0px 0px hsl(230 15% 8% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(230 15% 8% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 1px 2px -1px hsl(230 15% 8% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 1px 2px -1px hsl(230 15% 8% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 2px 4px -1px hsl(230 15% 8% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 4px 6px -1px hsl(230 15% 8% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 8px 10px -1px hsl(230 15% 8% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(230 15% 8% / 0.00);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -95,33 +95,33 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  --background: 220 20% 6%;
+  --background: 230 15% 8%;
   --foreground: 0 0% 95%;
-  --card: 220 20% 10%;
+  --card: 230 12% 12%;
   --card-foreground: 0 0% 95%;
-  --card-border: 220 10% 18%;
-  --popover: 220 20% 8%;
+  --card-border: 230 10% 18%;
+  --popover: 230 12% 10%;
   --popover-foreground: 0 0% 95%;
-  --popover-border: 220 10% 18%;
+  --popover-border: 230 10% 18%;
   --primary: 142 70% 45%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 220 14% 16%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 230 14% 16%;
   --secondary-foreground: 0 0% 95%;
-  --muted: 220 14% 14%;
-  --muted-foreground: 220 10% 55%;
-  --accent: 220 14% 16%;
+  --muted: 230 14% 14%;
+  --muted-foreground: 230 10% 55%;
+  --accent: 230 14% 16%;
   --accent-foreground: 0 0% 95%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 220 10% 16%;
-  --input: 220 10% 18%;
+  --border: 230 10% 16%;
+  --input: 230 10% 18%;
   --ring: 142 70% 45%;
-  --sidebar: 220 20% 8%;
+  --sidebar: 230 15% 8%;
   --sidebar-foreground: 0 0% 95%;
-  --sidebar-border: 220 10% 16%;
+  --sidebar-border: 230 10% 16%;
   --sidebar-primary: 142 70% 45%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 220 14% 16%;
+  --sidebar-accent: 230 14% 16%;
   --sidebar-accent-foreground: 0 0% 95%;
   --sidebar-ring: 142 70% 45%;
   --chart-1: 142 70% 45%;
@@ -129,14 +129,14 @@
   --chart-3: 30 80% 55%;
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
-  --shadow-2xs: 0px 2px 0px 0px hsl(220 20% 6% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(220 20% 6% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 1px 2px -1px hsl(220 20% 6% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 1px 2px -1px hsl(220 20% 6% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 2px 4px -1px hsl(220 20% 6% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 4px 6px -1px hsl(220 20% 6% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(220 20% 6% / 0.00), 0px 8px 10px -1px hsl(220 20% 6% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(220 20% 6% / 0.00);
+  --shadow-2xs: 0px 2px 0px 0px hsl(230 15% 8% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(230 15% 8% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 1px 2px -1px hsl(230 15% 8% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 1px 2px -1px hsl(230 15% 8% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 2px 4px -1px hsl(230 15% 8% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 4px 6px -1px hsl(230 15% 8% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(230 15% 8% / 0.00), 0px 8px 10px -1px hsl(230 15% 8% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(230 15% 8% / 0.00);
 }
 
 @layer base {
@@ -224,6 +224,38 @@
   }
 }
 
+/* Background grid pattern - matching original Torkfolio theme */
+.bg-grid {
+  position: relative;
+}
+.bg-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay gradient - bottom left green glow like original */
+.overlay--bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(ellipse at bottom left, hsla(142, 70%, 45%, 0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Marquee animation */
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -231,22 +263,111 @@
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 
-/* Section label sparkle badge */
+/* Section label sparkle badge - matching original .subtitle style */
 .sparkle-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
+  padding: 8px 20px;
   border-radius: 9999px;
-  border: 1px solid hsl(220 10% 20%);
-  background: hsl(220 20% 10%);
+  border: 1px solid hsl(230 10% 20%);
+  background: hsl(230 12% 12%);
   font-size: 14px;
   font-weight: 500;
-  color: hsl(0 0% 70%);
-  margin-bottom: 16px;
+  color: hsl(0 0% 75%);
+  margin-bottom: 20px;
+}
+
+/* Primary button - matching original .trk-btn--primary */
+.trk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.trk-btn--primary {
+  background: hsl(142 70% 45%);
+  color: hsl(0 0% 5%);
+}
+
+.trk-btn--primary:hover {
+  background: hsl(142 70% 40%);
+  transform: translateY(-2px);
+}
+
+.trk-btn--outline {
+  background: transparent;
+  border: 1px solid hsl(230 10% 25%);
+  color: hsl(0 0% 95%);
+}
+
+.trk-btn--outline:hover {
+  border-color: hsl(142 70% 45%);
+  color: hsl(142 70% 45%);
+  transform: translateY(-2px);
+}
+
+/* Play button style */
+.play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  color: hsl(0 0% 95%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.play-btn .play-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: hsl(230 12% 16%);
+  border: 1px solid hsl(230 10% 22%);
+  display: grid;
+  place-items: center;
+  transition: all 0.3s;
+}
+
+.play-btn:hover .play-icon {
+  background: hsl(142 70% 45%);
+  color: hsl(0 0% 5%);
+}
+
+/* Floating content cards - matching original floating-content style */
+.floating-card {
+  position: absolute;
+  background: hsl(230 12% 14%);
+  border: 1px solid hsl(230 10% 20%);
+  border-radius: 12px;
+  padding: 16px 20px;
+  z-index: 5;
+}
+
+.floating-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: hsl(0 0% 95%);
+  margin-bottom: 2px;
+}
+
+.floating-card p {
+  font-size: 13px;
+  color: hsl(230 10% 55%);
 }
 
 /* Green dot pulse for "available" */
@@ -257,6 +378,138 @@
 
 .pulse-green {
   animation: pulse-green 2s ease-in-out infinite;
+}
+
+/* Accordion style - matching original services accordion */
+.accordion-item {
+  background: hsl(230 12% 12%);
+  border: 1px solid hsl(230 10% 18%);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.accordion-item + .accordion-item {
+  margin-top: 12px;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.accordion-header:hover {
+  background: hsl(230 12% 14%);
+}
+
+.accordion-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(0 0% 95%);
+  margin: 0;
+}
+
+.accordion-body {
+  padding: 0 24px 20px;
+  color: hsl(230 10% 55%);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Contact info card style */
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.contact-info-item .icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: hsl(230 12% 14%);
+  border: 1px solid hsl(230 10% 20%);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* Services category marquee items */
+.services-category-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+  flex-shrink: 0;
+}
+
+.services-category-item h5 {
+  font-size: 18px;
+  font-weight: 500;
+  color: hsl(0 0% 80%);
+  white-space: nowrap;
+}
+
+/* Experience timeline */
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: hsl(230 10% 18%);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: hsl(142 70% 45%);
+  border: 4px solid hsl(230 15% 8%);
+  z-index: 2;
+}
+
+/* Pricing check arrow */
+.pricing-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid hsl(142 70% 45%);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* Section heading span green color */
+.section-header h2 span {
+  color: hsl(142 70% 45%);
+}
+
+/* Portfolio image grid */
+.portfolio-grid-item {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.portfolio-grid-item:hover {
+  transform: scale(1.02);
+}
+
+.portfolio-grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Custom scrollbar */
@@ -280,4 +533,60 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+}
+
+/* Floating shape animations */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+}
+
+.float-y {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+.float-x {
+  animation: float-x 5s ease-in-out infinite;
+}
+
+/* Footer link underline */
+.footer-link {
+  color: hsl(230 10% 55%);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 14px;
+}
+
+.footer-link:hover {
+  color: hsl(142 70% 45%);
+}
+
+/* Tech grid item */
+.tech-grid-item {
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.tech-grid-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin: 0 auto 8px;
+  filter: grayscale(20%);
+  transition: filter 0.3s;
+}
+
+.tech-grid-item:hover img {
+  filter: grayscale(0%);
+}
+
+.tech-grid-item p {
+  font-size: 12px;
+  color: hsl(230 10% 55%);
+  margin: 0;
 }
