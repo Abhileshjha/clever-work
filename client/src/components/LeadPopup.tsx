@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { X, Phone, Send } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { apiRequest } from "@/lib/queryClient";
@@ -15,17 +15,34 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
+  const [hasShownOnce, setHasShownOnce] = useState(false);
+
+  const showPopup = useCallback(() => {
+    if (!submitted) {
+      setShow(true);
+    }
+  }, [submitted]);
 
   useEffect(() => {
-    const dismissed = sessionStorage.getItem(`popup-dismissed-${page}`);
-    if (dismissed) return;
+    if (submitted) return;
 
-    const timer = setTimeout(() => {
-      setShow(true);
-    }, 8000);
+    if (!hasShownOnce) {
+      const initialTimer = setTimeout(() => {
+        showPopup();
+        setHasShownOnce(true);
+      }, 15000);
+      return () => clearTimeout(initialTimer);
+    }
+  }, [hasShownOnce, showPopup, submitted]);
 
-    return () => clearTimeout(timer);
-  }, [page]);
+  useEffect(() => {
+    if (!hasShownOnce || submitted || show) return;
+
+    const repeatTimer = setTimeout(() => {
+      showPopup();
+    }, 10000);
+    return () => clearTimeout(repeatTimer);
+  }, [hasShownOnce, submitted, show, showPopup]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +75,6 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
 
   const handleClose = () => {
     setShow(false);
-    sessionStorage.setItem(`popup-dismissed-${page}`, "true");
   };
 
   if (!show) return null;
@@ -66,17 +82,21 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
   const isDark = variant === "dark";
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4" data-testid="lead-popup-overlay">
+    <div
+      className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-4"
+      data-testid="lead-popup-overlay"
+    >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={handleClose} />
       <div
-        className={`relative w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl ${
+        className={`relative w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl p-5 sm:p-8 shadow-2xl ${
           isDark ? "bg-[#12122a] border border-white/10" : "bg-white border border-gray-200"
         }`}
+        style={{ maxHeight: "90vh", overflowY: "auto" }}
         data-testid="lead-popup"
       >
         <button
           onClick={handleClose}
-          className={`absolute top-4 right-4 p-1.5 rounded-full transition-colors ${
+          className={`absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 rounded-full transition-colors ${
             isDark ? "text-white/50 hover:text-white hover:bg-white/10" : "text-gray-400 hover:text-gray-700 hover:bg-gray-100"
           }`}
           data-testid="lead-popup-close"
@@ -85,16 +105,16 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
         </button>
 
         {submitted ? (
-          <div className="text-center py-6">
-            <div className={`w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center ${
+          <div className="text-center py-4 sm:py-6">
+            <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center ${
               isDark ? "bg-green-500/20" : "bg-green-50"
             }`}>
-              <Send className="w-7 h-7 text-green-500" />
+              <Send className="w-6 h-6 sm:w-7 sm:h-7 text-green-500" />
             </div>
-            <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h3 className={`text-lg sm:text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
               Thank You!
             </h3>
-            <p className={`text-sm mb-5 ${isDark ? "text-white/60" : "text-gray-500"}`}>
+            <p className={`text-sm mb-4 sm:mb-5 ${isDark ? "text-white/60" : "text-gray-500"}`}>
               We'll call you within 30 minutes during business hours.
             </p>
             <a
@@ -111,14 +131,14 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
           </div>
         ) : (
           <>
-            <div className="mb-5">
-              <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 ${
+            <div className="mb-4 sm:mb-5">
+              <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-2 sm:mb-3 ${
                 isDark ? "bg-green-500/15 text-green-400" : "bg-[#0d7c5f]/10 text-[#0d7c5f]"
               }`}>
                 <Phone className="w-3 h-3" />
                 Free Consultation
               </div>
-              <h3 className={`text-xl font-bold mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`} data-testid="lead-popup-title">
+              <h3 className={`text-lg sm:text-xl font-bold mb-1 sm:mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`} data-testid="lead-popup-title">
                 {page === "/real-estate"
                   ? "Get a Free Strategy Call"
                   : "Get a Free Quote"}
@@ -130,7 +150,7 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
               <input
                 type="text"
                 placeholder="Your Name"
@@ -175,7 +195,7 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
               </button>
             </form>
 
-            <div className="mt-4 flex items-center justify-center gap-4">
+            <div className="mt-3 sm:mt-4 flex items-center justify-center gap-4">
               <a
                 href="https://wa.me/918766350093"
                 target="_blank"

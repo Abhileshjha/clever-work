@@ -393,32 +393,35 @@ function REPricing() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
   const plans = [
     {
-      label: "Mid-Segment Projects",
-      price: "30K - 60K",
-      period: "/month",
-      desc: "For residential projects in the 40L - 1.5Cr range. Full performance marketing setup with Google + Meta campaigns.",
-      features: ["Google Search Campaigns", "Meta Lead Gen Ads", "Landing Page Setup", "WhatsApp Integration", "Weekly Reports", "CRM Integration"],
+      label: "Google Ads Campaign",
+      price: "\u20B935,000",
+      period: "",
+      priceSub: "or 10% of campaign budget, whichever is higher",
+      desc: "Run high-intent Google Search & Display campaigns to capture buyer leads actively searching for properties.",
+      features: ["Google Search Campaigns", "Google Display Ads", "Keyword Research & Targeting", "Landing Page Setup", "Weekly Performance Reports", "CRM Integration"],
       highlight: false,
       cta: "Get Started",
     },
     {
-      label: "Premium Projects",
-      price: "60K - 85K",
-      period: "/month",
+      label: "Google + Meta Ads",
+      price: "\u20B955,000",
+      period: "",
       badge: "Most Popular",
-      desc: "For premium projects in the 1.5Cr - 3Cr range. Advanced targeting, remarketing funnels, and dedicated account management.",
-      features: ["Everything in Mid-Segment", "Advanced Remarketing", "WhatsApp Automation", "Video Ad Campaigns", "Bi-Weekly Strategy Calls", "Sales Feedback Integration"],
+      priceSub: "or 10% of total campaign budget, whichever is higher",
+      desc: "Complete performance marketing across Google & Meta platforms. Maximum reach with search intent + social targeting.",
+      features: ["Everything in Google Ads", "Meta Lead Gen Ads", "Facebook & Instagram Campaigns", "Advanced Remarketing Funnels", "Video Ad Campaigns", "Bi-Weekly Strategy Calls"],
       highlight: true,
       cta: "Book Strategy Call",
     },
     {
-      label: "Luxury Projects",
-      price: "90K - 1.5L",
-      period: "/month",
-      desc: "For luxury projects 3Cr+. Premium funnel design, HNI targeting, and comprehensive sales-marketing alignment.",
-      features: ["Everything in Premium", "HNI Audience Targeting", "Premium Creative Design", "CXO-Level Reporting", "Dedicated Campaign Manager", "Revenue Attribution Setup"],
+      label: "WhatsApp API Suite",
+      price: "\u20B925,000",
+      period: "",
+      priceSub: "for API setup + daily up to 10K messages",
+      desc: "WhatsApp Business API setup with automated messaging suite for lead nurturing, follow-ups, and bulk campaigns.",
+      features: ["WhatsApp Business API Setup", "Daily Up to 10K Messages", "Automated Lead Follow-ups", "Broadcast & Bulk Messaging", "Template Message Setup", "Chat Analytics Dashboard"],
       highlight: false,
-      cta: "Discuss Requirements",
+      cta: "Get Started",
     },
   ];
 
@@ -433,7 +436,7 @@ function REPricing() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold re-text-dark leading-tight mb-4" data-testid="re-pricing-title">
             Management <span className="re-text-accent">Fee Structure</span>
           </h2>
-          <p className="text-gray-500">Media budget is billed directly to platforms. No hidden costs. No long-term lock-ins.</p>
+          <p className="text-gray-500">Pick the services you need. Media budget is billed directly to platforms. No hidden costs.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
@@ -443,8 +446,9 @@ function REPricing() {
               <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-3">{plan.label}</div>
               <div className="flex items-baseline gap-1 mb-1">
                 <span className="text-3xl md:text-4xl font-bold re-text-dark">{plan.price}</span>
-                <span className="text-sm text-gray-400">{plan.period}</span>
+                {plan.period && <span className="text-sm text-gray-400">{plan.period}</span>}
               </div>
+              {plan.priceSub && <p className="text-xs text-gray-400 mb-3 leading-relaxed">{plan.priceSub}</p>}
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">{plan.desc}</p>
 
               <a href="https://wa.me/918766350093?text=Hi,%20I%20am%20interested%20in%20performance%20marketing%20for%20my%20real%20estate%20project." target="_blank" rel="noopener noreferrer" className={`re-btn re-btn--sm justify-center w-full mb-6 ${plan.highlight ? "re-btn--primary" : "re-btn--outline-dark"}`} data-testid={`re-pricing-cta-${i}`}>
