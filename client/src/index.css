@@ -687,7 +687,7 @@ html {
 }
 
 /* ================================================
-   REAL ESTATE LANDING PAGE STYLES
+   REAL ESTATE PERFORMANCE MARKETING LANDING PAGE
    ================================================ */
 
 .re-page {
@@ -699,46 +699,32 @@ html {
 }
 
 .re-page *::selection {
-  background: rgba(16, 95, 67, 0.15);
+  background: rgba(13, 124, 95, 0.15);
 }
 
-.re-text-dark {
-  color: #1a1a2e;
-}
+.re-text-dark { color: #1a1a2e; }
+.re-text-accent { color: #0d7c5f; }
+.re-bg-accent { background: #0d7c5f; }
 
-.re-text-accent {
-  color: #0d7c5f;
-}
-
-.re-bg-accent {
-  background: #0d7c5f;
-}
-
-/* RE Nav */
+/* Nav */
 .re-nav--scrolled {
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0,0,0,0.06);
   box-shadow: 0 1px 8px rgba(0,0,0,0.04);
 }
-
 .re-nav--scrolled a,
 .re-nav--scrolled span,
-.re-nav--scrolled button {
-  color: #1a1a2e !important;
-}
-
-.re-nav--scrolled .re-btn--primary {
-  color: white !important;
-}
+.re-nav--scrolled button { color: #1a1a2e !important; }
+.re-nav--scrolled .re-btn--primary { color: white !important; }
 
 .re-mobile-menu {
-  background: rgba(26, 26, 46, 0.97);
+  background: rgba(10, 10, 26, 0.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* RE Buttons */
+/* Buttons */
 .re-btn {
   display: inline-flex;
   align-items: center;
@@ -747,54 +733,45 @@ html {
   border-radius: 8px;
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.3s ease;
-  text-decoration: none;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
   cursor: pointer;
+  line-height: 1.3;
 }
-
 @media (min-width: 768px) {
-  .re-btn {
-    padding: 14px 28px;
-    font-size: 15px;
-  }
+  .re-btn { padding: 14px 28px; font-size: 15px; }
 }
 
-.re-btn--primary {
-  background: #0d7c5f;
-  color: white;
-}
+.re-btn--sm { padding: 10px 20px; font-size: 13px; }
+@media (min-width: 768px) { .re-btn--sm { padding: 11px 22px; font-size: 14px; } }
 
+.re-btn--primary { background: #0d7c5f; color: white; border: none; }
 .re-btn--primary:hover {
   background: #0a6a51;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(13, 124, 95, 0.3);
+  box-shadow: 0 4px 20px rgba(13, 124, 95, 0.35);
 }
 
 .re-btn--glass {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.1);
   color: white;
   border: 1px solid rgba(255,255,255,0.2);
   backdrop-filter: blur(8px);
 }
-
-.re-btn--glass:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-1px);
-}
+.re-btn--glass:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
 
 .re-btn--outline-dark {
   background: transparent;
-  border: 1px solid rgba(26, 26, 46, 0.2);
+  border: 1.5px solid rgba(26, 26, 46, 0.18);
   color: #1a1a2e;
 }
-
 .re-btn--outline-dark:hover {
   border-color: #0d7c5f;
   color: #0d7c5f;
   transform: translateY(-1px);
 }
 
-/* RE Label badge */
+/* Label/Badge */
 .re-label {
   display: inline-flex;
   align-items: center;
@@ -807,135 +784,244 @@ html {
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-
+.re-label--dark {
+  background: rgba(13, 124, 95, 0.15);
+}
 @media (min-width: 768px) {
-  .re-label {
-    padding: 8px 18px;
-    font-size: 13px;
-  }
+  .re-label { padding: 8px 18px; font-size: 13px; }
 }
 
-/* RE Section */
-.re-section {
-  padding: 80px 0;
-}
+/* Sections */
+.re-section { padding: 72px 0; }
+@media (min-width: 768px) { .re-section { padding: 100px 0; } }
+.re-section--alt { background: #f8f9fb; }
+.re-section--dark { background: #0e0e1a; }
 
-@media (min-width: 768px) {
-  .re-section {
-    padding: 100px 0;
-  }
-}
-
-.re-section--alt {
-  background: #f8f9fb;
-}
-
-/* RE Property Card */
-.re-property-card {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.re-property-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  transform: translateY(-4px);
-}
-
-.re-tag {
-  padding: 4px 12px;
-  border-radius: 6px;
-  background: #0d7c5f;
-  color: white;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-/* RE Service Card */
-.re-service-card {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.3s ease;
-}
-
-.re-service-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-  transform: translateY(-2px);
-}
-
-.re-service-icon {
-  width: 52px;
-  height: 52px;
+/* Icon Box */
+.re-icon-box {
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
   background: rgba(13, 124, 95, 0.08);
   color: #0d7c5f;
-  display: grid;
-  place-items: center;
-  margin-bottom: 16px;
-}
-
-/* RE About stat card */
-.re-about-stat-card {
-  background: white;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 16px;
-  padding: 20px 28px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-}
-
-/* RE Check circle */
-.re-check-circle {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #0d7c5f;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
+.re-icon-box--dark {
+  background: rgba(13, 124, 95, 0.15);
+}
 
-/* RE Testimonial Card */
-.re-testimonial-card {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 16px;
+/* Dark Card (used in Problems, Why Us) */
+.re-dark-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
   padding: 28px;
   transition: all 0.3s ease;
 }
-
-.re-testimonial-card:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+.re-dark-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(13, 124, 95, 0.2);
 }
 
-/* RE Social Icon */
+/* Metric Card */
+.re-metric-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.re-metric-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+
+/* ROI Table */
+.re-roi-table-wrap {
+  background: #f8f9fb;
+  border-radius: 14px;
+  padding: 28px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.re-roi-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.re-roi-table th {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1a1a2e;
+  padding: 12px 16px;
+  border-bottom: 2px solid rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+.re-roi-table td {
+  font-size: 14px;
+  color: #555;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.re-roi-table tbody tr:last-child td { border-bottom: none; }
+.re-roi-table tbody tr:hover { background: rgba(13, 124, 95, 0.03); }
+
+/* Service Card */
+.re-service-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 28px;
+  transition: all 0.3s ease;
+}
+.re-service-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+
+/* Chip */
+.re-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(13, 124, 95, 0.06);
+  color: #0d7c5f;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Client & City chips */
+.re-client-chip {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(13, 124, 95, 0.06);
+  color: #0d7c5f;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(13, 124, 95, 0.12);
+}
+.re-city-chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #555;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Mini Stat */
+.re-mini-stat {
+  text-align: center;
+  padding: 16px;
+  background: #f8f9fb;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Impact Card (dark gradient) */
+.re-impact-card {
+  background: linear-gradient(145deg, #0e0e1a, #161630);
+  border-radius: 16px;
+  padding: 36px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Pricing Card */
+.re-pricing-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 32px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.re-pricing-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+.re-pricing-card--featured {
+  border-color: #0d7c5f;
+  box-shadow: 0 0 0 1px #0d7c5f, 0 8px 30px rgba(13, 124, 95, 0.12);
+}
+.re-pricing-badge {
+  position: absolute;
+  top: -1px;
+  right: 24px;
+  background: #0d7c5f;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 0 0 8px 8px;
+  letter-spacing: 0.03em;
+}
+
+/* Check icon small */
+.re-check-sm {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0d7c5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Step Card (Process) */
+.re-step-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+.re-step-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transform: translateY(-1px);
+}
+.re-step-day {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(13, 124, 95, 0.08);
+  color: #0d7c5f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+/* Social Icon */
 .re-social-icon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: #f8f9fb;
+  background: #f3f4f6;
   border: 1px solid rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #666;
-  transition: all 0.3s;
-  text-decoration: none;
+  transition: all 0.25s;
+  text-decoration: none !important;
 }
-
 .re-social-icon:hover {
   background: #0d7c5f;
   color: white;
   border-color: #0d7c5f;
 }
 
-/* RE Footer */
+/* Footer */
 .re-footer {
-  padding: 80px 0 32px;
+  padding: 72px 0 32px;
   background: #ffffff;
   border-top: 1px solid rgba(0,0,0,0.06);
 }
