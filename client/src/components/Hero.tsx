@@ -29,7 +29,7 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center pt-24 pb-16 bg-grid" data-testid="section-hero">
       <div className="overlay--bottom-left" />
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -92,12 +92,12 @@ export function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block"
+            className="relative hidden md:block"
           >
             <img
               src="/images/profile/hero.png"
               alt="The Clever Work - Full Stack Developer"
-              className="w-full max-w-[500px] mx-auto"
+              className="w-full max-w-[400px] lg:max-w-[500px] mx-auto"
               style={{ borderRadius: '40px' }}
               data-testid="img-hero-profile"
             />

@@ -102,7 +102,7 @@ export function Experience() {
     <section ref={ref} id="experience" className="py-20 md:py-28 bg-grid" data-testid="section-experience">
       <div className="overlay--bottom-left" />
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -181,7 +181,7 @@ export function Experience() {
             WhatsApp Me
           </a>
 
-          <div className="relative max-w-3xl pl-10 md:pl-14">
+          <div className="relative max-w-3xl pl-8 md:pl-14">
             <div className="timeline-line" />
             {timeline.map((item, i) => (
               <motion.div
@@ -189,11 +189,11 @@ export function Experience() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.5 + i * 0.15 }}
-                className="relative pb-12 last:pb-0"
+                className="relative pb-10 md:pb-12 last:pb-0"
                 data-testid={`timeline-item-${i}`}
               >
                 <div className="timeline-dot" />
-                <div className="ml-8 md:ml-10 bg-card rounded-xl border border-border p-6">
+                <div className="ml-6 md:ml-10 bg-card rounded-xl border border-border p-4 md:p-6">
                   <div className="text-xs font-bold text-primary mb-1">{item.year}</div>
                   <div className="text-xs text-muted-foreground mb-2">{item.subtitle}</div>
                   <h4 className="text-lg font-bold mb-2">{item.title}</h4>

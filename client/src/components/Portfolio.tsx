@@ -52,7 +52,7 @@ export function Portfolio() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
           {projectImages.map((project, i) => (
             <motion.div
               key={i}

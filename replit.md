@@ -2,7 +2,12 @@
 
 ## Overview
 
-This is a freelancer portfolio website for "The Clever Work" — a full-stack developer/consultancy business. It's a single-page marketing site with sections for hero, tech stack, stats, experience timeline, portfolio showcase, pricing plans, and a contact footer. The site includes a backend API for handling contact form submissions stored in PostgreSQL. The project follows a monorepo structure with a React frontend, Express backend, and shared schema/route definitions.
+This is a freelancer portfolio website for "The Clever Work" — a full-stack developer/consultancy business. It has two landing pages:
+
+1. **Main Portfolio** (`/`) — Single-page marketing site with hero, tech stack marquee, stats/about, experience timeline, portfolio showcase (21 actual project screenshots), pricing plans, and contact footer. Uses dark theme with green accent (Torkfolio style).
+2. **Real Estate Landing** (`/real-estate`) — A premium real estate niche landing page ("EstateVue") with hero, featured properties grid, services, about, testimonials, CTA, and footer. Uses light theme with teal-green accent.
+
+Both pages use phone 8766350093 and email thecleverwork@gmail.com. The site includes a backend API for handling contact form submissions stored in PostgreSQL. The project follows a monorepo structure with a React frontend, Express backend, and shared schema/route definitions.
 
 ## User Preferences
 
@@ -20,7 +25,7 @@ Preferred communication style: Simple, everyday language.
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
 - **Bundler**: Vite with HMR support during development
-- **Routing**: Wouter (lightweight client-side router) — currently only has `/` (Home) and a 404 page
+- **Routing**: Wouter (lightweight client-side router) — has `/` (Home portfolio), `/real-estate` (Real Estate landing), and a 404 page
 - **State Management**: TanStack React Query for server state
 - **UI Components**: shadcn/ui (new-york style) built on Radix UI primitives with Tailwind CSS
 - **Animations**: Framer Motion + react-intersection-observer for scroll-triggered animations
