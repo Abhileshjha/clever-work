@@ -1,145 +1,108 @@
-import { Mail, Phone, Github, Twitter, Linkedin, Heart } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useContact } from "@/hooks/use-contact";
-import { insertContactMessageSchema } from "@shared/schema";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, ArrowRight } from "lucide-react";
+import { SiWhatsapp, SiInstagram, SiYoutube } from "react-icons/si";
 
 export function ContactFooter() {
-  const contactMutation = useContact();
-  
-  const form = useForm<z.infer<typeof insertContactMessageSchema>>({
-    resolver: zodResolver(insertContactMessageSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = (data: z.infer<typeof insertContactMessageSchema>) => {
-    contactMutation.mutate(data, {
-      onSuccess: () => form.reset(),
-    });
-  };
-
   return (
-    <footer className="pt-24 pb-8 bg-black relative border-t border-white/10">
+    <footer id="contact" className="py-20 border-t border-border" data-testid="section-footer">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          {/* Contact Info */}
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
-              Let's build something <br/>
-              <span className="text-gradient">exceptional.</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Let's work <span className="text-primary">together.</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-10 max-w-md">
-              Ready to start your project? Contact me today for a quote. 
-              We offer 2 free consultation meetings before kicking off.
+            <p className="text-muted-foreground mb-8 max-w-md leading-relaxed">
+              Ready to start your project? Contact me today for a quote.
+              I offer 2 free consultation meetings before kicking off.
             </p>
 
-            <div className="space-y-6 mb-10">
-              <a href="mailto:thecleverwork@gmail.com" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
-                  <Mail className="w-5 h-5" />
+            <div className="space-y-4 mb-8">
+              <a href="mailto:thecleverwork@gmail.com" className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border" data-testid="link-footer-email">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">Email Me</div>
-                  <div className="text-xl font-bold group-hover:text-primary transition-colors">thecleverwork@gmail.com</div>
+                  <div className="text-xs text-muted-foreground">Email</div>
+                  <div className="text-sm font-semibold">thecleverwork@gmail.com</div>
                 </div>
               </a>
 
-              <a href="tel:+918766350093" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
-                  <Phone className="w-5 h-5" />
+              <a href="tel:+918766350093" className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border" data-testid="link-footer-phone">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">Call Me</div>
-                  <div className="text-xl font-bold group-hover:text-primary transition-colors">+91 8766350093</div>
+                  <div className="text-xs text-muted-foreground">Phone</div>
+                  <div className="text-sm font-semibold">+91 8766 3500 93</div>
                 </div>
               </a>
             </div>
 
-            <div className="flex gap-4">
-              {[Github, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-white transition-colors text-muted-foreground">
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://wa.me/918766350093"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm"
+                data-testid="link-footer-whatsapp"
+              >
+                WhatsApp Me <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:thecleverwork@gmail.com"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-foreground font-semibold text-sm"
+              >
+                Send Email
+              </a>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-card p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
-            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input placeholder="Your Name" className="bg-background/50 border-white/10 h-12 focus:border-primary/50" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input placeholder="Your Email" className="bg-background/50 border-white/10 h-12 focus:border-primary/50" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Textarea placeholder="Tell me about your project..." className="bg-background/50 border-white/10 min-h-[120px] focus:border-primary/50" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+          <div className="flex flex-col justify-between">
+            <div>
+              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+              <div className="grid grid-cols-2 gap-2">
+                {["About", "Experience", "Portfolio", "Pricing", "Contact"].map((link) => (
+                  <a
+                    key={link}
+                    href={`#${link.toLowerCase()}`}
+                    className="text-sm text-muted-foreground py-1"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
 
-                <button
-                  type="submit"
-                  disabled={contactMutation.isPending}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-primary/80 text-black font-bold text-lg hover:shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            <div className="mt-8">
+              <h3 className="text-lg font-bold mb-4">Follow</h3>
+              <div className="flex gap-3">
+                <a
+                  href="https://wa.me/918766350093"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground"
                 >
-                  {contactMutation.isPending ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-            </Form>
+                  <SiWhatsapp className="w-4 h-4" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground"
+                >
+                  <SiInstagram className="w-4 h-4" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground"
+                >
+                  <SiYoutube className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between text-muted-foreground text-sm">
-          <p>© {new Date().getFullYear()} The Clever Work. All rights reserved.</p>
-          <div className="flex items-center gap-2 mt-4 md:mt-0">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by The Clever Work
-          </div>
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between text-muted-foreground text-sm gap-4">
+          <p>&copy; {new Date().getFullYear()} The Clever Work. All rights reserved.</p>
+          <p>Built with quality & passion.</p>
         </div>
       </div>
     </footer>

@@ -1,114 +1,114 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import { Sparkles, ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Informative",
-    price: "₹10-25K",
-    desc: "Perfect for portfolios, company profiles, and landing pages.",
+    label: "Informative Websites",
+    price: "10-25K Rs.",
+    cta: "Pay 999 Now",
+    desc: "Best for company website, portfolio, informative website or landing pages. Free 30 mins consultancy if paid now.",
     features: [
-      "Mobile Responsive Design",
-      "Dynamic Admin Panel",
-      "1 Year Warranty",
-      "On-Page SEO Setup",
-      "Fast Loading Speed"
+      "Mobile Responsive",
+      "Dynamic with Admin panel",
+      "1 year warranty",
+      "On-Page SEO",
+      "Payment plan 33% x 3",
     ],
     highlight: false,
-    cta: "Start Project"
   },
   {
-    name: "eCommerce",
-    price: "₹25-55K",
-    desc: "Sell anything online. Shopify, WooCommerce, or Custom.",
+    label: "eCom",
+    price: "25-55K Rs",
+    cta: "Deposit Rs: 999",
+    badge: "Expert",
+    desc: "Sell anything online, Shopify, Wordpress, PHP and custom. Grocery, food delivery, Sell anything online. Free 30 mins consultancy if paid now.",
     features: [
-      "Responsive Shop Layout",
-      "Admin Dashboard",
-      "Categories & Filters",
-      "Payment Gateway Integration",
-      "Shipping Setup"
+      "Responsive, Dynamic eCom",
+      "Shopify, WP, Custom With Admin.",
+      "Categories, sub cat, Filters, Search",
+      "Add to cart, Payment, Shipping etc",
+      "1 year warranty",
     ],
     highlight: true,
-    cta: "Build Store"
   },
   {
-    name: "Custom App",
-    price: "₹50K+",
-    desc: "Unique ideas, startups, and complex web applications.",
+    label: "Custom",
+    price: "50K+ Rs",
+    cta: "Deposit Rs 999",
+    desc: "Special APPs, websites with new ideas and build something great. Startup ideas. Free 30 mins consultancy if paid now.",
     features: [
-      "Brainstorming Session",
-      "Custom UX/UI Design",
-      "Complex Database Architecture",
-      "API Integrations",
-      "Scalable Infrastructure"
+      "Brain Storming",
+      "Responsive, Dynamic UI",
+      "Custom Backend & APIs",
+      "Scalable Architecture",
+      "1 year warranty",
     ],
     highlight: false,
-    cta: "Consult Now"
-  }
+  },
 ];
 
 export function Pricing() {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
+
   return (
-    <section id="pricing" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
-            Transparent <span className="text-gradient">Pricing</span>
-          </h2>
-          <p className="text-muted-foreground">
-            Invest in quality. No hidden fees, just great results.
-          </p>
+    <section ref={ref} id="pricing" className="py-20" data-testid="section-pricing">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="sparkle-badge">
+          <Sparkles className="w-4 h-4 text-primary" />
+          Affordable Prices
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12">
+          My <span className="text-primary">Pricing</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl">
           {plans.map((plan, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 group
-                ${plan.highlight 
-                  ? "bg-card border-primary/50 shadow-[0_0_40px_-10px_rgba(0,240,255,0.2)] scale-105 z-10" 
-                  : "bg-card/50 border-white/5 hover:border-white/20 hover:bg-card"
-                }
-              `}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.15 }}
+              className={`flex flex-col p-6 rounded-xl border ${
+                plan.highlight
+                  ? "bg-card border-primary/40"
+                  : "bg-card border-border"
+              }`}
+              data-testid={`card-pricing-${i}`}
             >
-              {plan.highlight && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  Most Popular
-                </div>
+              <div className="text-xs text-muted-foreground font-medium mb-2">{plan.label}</div>
+              <div className="text-3xl font-bold mb-3">{plan.price}</div>
+
+              <a
+                href="https://wa.me/918766350093"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm mb-4 transition-all ${
+                  plan.highlight
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-foreground"
+                }`}
+              >
+                {plan.cta} <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+
+              {plan.badge && (
+                <div className="text-xs font-bold text-primary mb-2">{plan.badge}</div>
               )}
 
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-2">
-                  <span className={`text-4xl font-bold font-display ${plan.highlight ? 'text-primary' : 'text-white'}`}>
-                    {plan.price}
-                  </span>
-                </div>
-                <p className="text-sm text-muted-foreground">{plan.desc}</p>
-              </div>
+              <p className="text-xs text-muted-foreground mb-5 leading-relaxed">{plan.desc}</p>
 
-              <div className="flex-grow mb-8 space-y-4">
+              <div className="space-y-3 mt-auto">
                 {plan.features.map((feature, f) => (
                   <div key={f} className="flex items-center gap-3 text-sm">
-                    <div className={`p-1 rounded-full ${plan.highlight ? 'bg-primary/20 text-primary' : 'bg-white/10 text-white'}`}>
-                      <Check className="w-3 h-3" />
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-primary" />
                     </div>
-                    <span className="text-muted-foreground group-hover:text-white transition-colors">{feature}</span>
+                    <span className="text-muted-foreground">{feature}</span>
                   </div>
                 ))}
               </div>
-
-              <button className={`w-full py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2
-                ${plan.highlight 
-                  ? "bg-primary text-black hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25" 
-                  : "bg-white/10 text-white hover:bg-white/20"
-                }
-              `}>
-                {plan.cta} <ArrowRight className="w-4 h-4" />
-              </button>
             </motion.div>
           ))}
         </div>

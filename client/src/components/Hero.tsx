@@ -1,105 +1,104 @@
 import { motion } from "framer-motion";
-import { ArrowRight, PlayCircle, Star, Sparkles } from "lucide-react";
+import { Sparkles, ArrowRight, Play, Star } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-background via-background to-black opacity-80" />
-      </div>
+    <section className="relative min-h-screen flex items-center pt-24 pb-16" data-testid="section-hero">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <span className="text-lg text-muted-foreground">Hi</span>
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGREM0RCIgZD0iTTQuODYxIDkuMTQ3YzAuOTQtLjY1NyAyLjM1Ny0uNTMxIDMuMjAxLjE2NmwtLjk2OC0xLjQwNy0uNDktLjc1LTEuMTg5LTEuODE1Yy0uODQtMS4yODUtMi41NjEtMS42NDktMy44NDktLjgxMy0xLjI4Ni44MzgtMS42NTIgMi41Ni0uODEyIDMuODQ3bDEuMTg5IDEuODE1LjQ5Ljc1LjgxNiAxLjIwNWMtLjMzLTEuMjk0LjI3Mi0yLjM0MSAxLjYxMi0yLjk5OHoiLz48cGF0aCBmaWxsPSIjRkZEQzREIiBkPSJNMTcuNzA4IDMuMzQ5Yy0yLjA4LTIuMDgtNS40NTYtMi4wOC03LjUzNiAwLTEuNjI3IDEuNjI3LTEuOTc1IDQuMDMxLTEuMDQ2IDYuMDE0TDcuOTQzIDcuNTg5IDYuMjU0IDUuMTRjLS44NC0xLjI4NS0yLjU2MS0xLjY0OS0zLjg0OS0uODEzLTEuMjg2LjgzOC0xLjY1MiAyLjU2LS44MTIgMy44NDdsMi44NiA0LjM2NWg4Ljg1NWMxLjQ4MSAwIDIuOTE3LTMuMjcgMi44MTQtNS4yMDFsNS43MDMtMi41OTRjMS4xMjktLjUxMyAxLjYzMi0xLjg1OCAxLjEyNC0zLjAwNS0uNTA3LTEuMTQ1LTEuODUtMS42NDctMi45NzgtMS4xMzRMMTQuMjgzIDMuNTQgMTIuMDYgNC45NDhzMy42NDYtMy42LS4xNzItLjI1bC40MjItLjAyMmMuMDExLjAyNi0zLjE5My0yLjkyLTQuNjQyLTMuMDc4bC0xLjA5Mi0uMTU3IDcuMDg2IDEuMjg4IDIuOTYzLjcxMnMuMDMxLS4wMTUuMDI5LS4wMjRjLjE0NC0uMTA0LS4wNzkuMDI1LS4wODkuMDI4LS4wMTkuMDA2LjExOC0uMDU4LjExOC0uMDU4cy4xMi0uMDU1LjExNS0uMDUxYy4wOTYtLjAzOC4wNy0uMDI1LS4wMi4wMTFsLjIwMi0uMDczYy4wMjMtLjAwNy4wNDgtLjAxMy4wNjktLjAxOS0uMDExLjAwNC0uMDUzLjAxNS0uMDUzLjAxNXMtLjAxOS4wMDgtLjA0LjAxNSIvPjxwYXRoIGZpbGw9IiNGRkRDNEQiIGQ9Ik0yMC43MDggNi4yNDlsLTMuNSA1LjVMMjQuMjA4IDUuMjQ5bC0zLjUtMXoiLz48cGF0aCBmaWxsPSIjRTFCRTIxIiBkPSJNMTQuNzk0IDIuMDk5bC04LjY2IDkuMTkzIDQuOTYgMy4yNDcgOC45NDktMTMuNDkyYy0uMDAxIDAtMy42NTUgMi4zOTctNS4yNDkgMS4wNTJ6Ii8+PC9zdmc+"
+                alt="wave"
+                className="w-8 h-8"
+              />
+            </div>
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
-            <Sparkles className="w-4 h-4 text-secondary" />
-            <span className="text-sm font-medium text-secondary">Available for new projects</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold font-display leading-tight mb-6">
-            Hi <span className="animate-wave inline-block origin-bottom-right">👋</span> I'm <br />
-            <span className="text-gradient">The Clever Work</span>
-          </h1>
-          
-          <h2 className="text-2xl md:text-3xl text-muted-foreground font-light mb-8">
-            Full Stack Developer &<br />
-            Digital Craftsman
-          </h2>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" data-testid="text-hero-title">
+              I'm The Clever Work
+              <span className="inline-flex items-center ml-3">
+                <Star className="w-8 h-8 md:w-10 md:h-10 text-primary fill-primary" />
+              </span>
+              <br />
+              <span className="text-primary">Full Stack</span>
+              <br />
+              Developer
+            </h1>
 
-          <p className="text-lg text-muted-foreground/80 max-w-lg mb-10 leading-relaxed">
-            I create visually stunning and fully functional Websites & Apps. 
-            With <span className="text-white font-semibold">12+ years of experience</span>, 
-            I know exactly how to turn your vision into reality.
-          </p>
+            <p className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
+              I will create a great looking and fully functional Website / APP for you.
+              With <span className="text-foreground font-semibold">12Y Exp</span>, I know what I am doing.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="https://wa.me/8766350093"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-background font-bold text-lg hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:-translate-y-1 transition-all duration-300"
-            >
-              WhatsApp Me <ArrowRight className="w-5 h-5" />
-            </a>
-            
-            <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-              <PlayCircle className="w-5 h-5" /> Watch Video
-            </button>
-          </div>
-        </motion.div>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-base transition-all duration-300"
+                data-testid="link-whatsapp-hero"
+              >
+                WhatsApp me <ArrowRight className="w-4 h-4" />
+              </a>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative hidden lg:block"
-        >
-          <div className="relative w-full aspect-square max-w-md mx-auto">
-            {/* Abstract Tech Visual */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full animate-pulse" />
-            <img 
-              /* Using unsplash image for abstract tech representation */
-              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
-              alt="Digital Abstract"
-              className="relative z-10 w-full h-full object-cover rounded-3xl rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl shadow-primary/20 border border-white/10"
-            />
-            
-            {/* Floating Badges */}
-            <motion.div 
-              animate={{ y: [0, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 4 }}
-              className="absolute -top-10 -right-10 z-20 bg-card p-4 rounded-2xl shadow-xl border border-white/10 flex items-center gap-3"
-            >
-              <div className="bg-green-500/20 p-2 rounded-lg">
-                <Star className="w-6 h-6 text-green-500 fill-green-500" />
+              <a
+                href="#portfolio"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground font-semibold text-base transition-all duration-300"
+                data-testid="link-video-hero"
+              >
+                <Play className="w-4 h-4" /> View my work
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative hidden lg:flex items-center justify-center"
+          >
+            <div className="relative w-[420px] h-[480px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 rounded-[2rem]" />
+              <div className="absolute inset-4 bg-card rounded-[1.5rem] border border-border flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center">
+                    <span className="text-5xl font-bold text-primary">TC</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-1">The Clever Work</h3>
+                  <p className="text-sm text-muted-foreground">Full Stack Developer</p>
+                  <div className="mt-4 flex items-center justify-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-green-500 pulse-green" />
+                    <span className="text-xs text-green-400">Available for work</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div className="text-xl font-bold">12+</div>
-                <div className="text-xs text-muted-foreground">Years Exp.</div>
-              </div>
-            </motion.div>
 
-            <motion.div 
-              animate={{ y: [0, 20, 0] }}
-              transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-              className="absolute -bottom-10 -left-10 z-20 bg-card p-4 rounded-2xl shadow-xl border border-white/10 flex items-center gap-3"
-            >
-              <div className="bg-primary/20 p-2 rounded-lg">
-                <Sparkles className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <div className="text-xl font-bold">1K+</div>
-                <div className="text-xs text-muted-foreground">Projects Done</div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3 }}
+                className="absolute -top-4 -right-4 bg-card p-3 rounded-xl border border-border flex items-center gap-2 shadow-lg"
+              >
+                <Sparkles className="w-5 h-5 text-primary" />
+                <span className="text-sm font-bold">12+ Years</span>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, delay: 1 }}
+                className="absolute -bottom-4 -left-4 bg-card p-3 rounded-xl border border-border flex items-center gap-2 shadow-lg"
+              >
+                <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                <span className="text-sm font-bold">970+ Projects</span>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
