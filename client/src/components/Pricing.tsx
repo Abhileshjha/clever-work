@@ -58,7 +58,7 @@ export function Pricing() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
-    <section ref={ref} id="pricing" className="py-20 md:py-28" data-testid="section-pricing">
+    <section ref={ref} id="pricing" className="py-20 md:py-28 scroll-mt-20" data-testid="section-pricing">
       <div className="container mx-auto px-4 md:px-6">
         <div className="sparkle-badge">
           <SparkleIcon />
@@ -92,7 +92,7 @@ export function Pricing() {
                 href="https://wa.me/918766350093?text=Hi,%20i%20am%20interested%20in%20the%20pricing%20plan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`trk-btn justify-center mb-5 !text-sm ${
+                className={`trk-btn trk-btn--sm justify-center mb-5 ${
                   plan.highlight ? "trk-btn--primary" : "trk-btn--outline"
                 }`}
                 data-testid={`link-pricing-cta-${i}`}

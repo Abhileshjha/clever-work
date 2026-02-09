@@ -6,6 +6,7 @@ import { Experience } from "@/components/Experience";
 import { Portfolio } from "@/components/Portfolio";
 import { Pricing } from "@/components/Pricing";
 import { ContactFooter } from "@/components/ContactFooter";
+import { LeadPopup } from "@/components/LeadPopup";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       </main>
 
       <ContactFooter />
+      <LeadPopup page="/" variant="dark" />
     </div>
   );
 }

@@ -99,7 +99,7 @@ export function Experience() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
-    <section ref={ref} id="experience" className="py-20 md:py-28 bg-grid" data-testid="section-experience">
+    <section ref={ref} id="experience" className="py-20 md:py-28 bg-grid scroll-mt-20" data-testid="section-experience">
       <div className="overlay--bottom-left" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">

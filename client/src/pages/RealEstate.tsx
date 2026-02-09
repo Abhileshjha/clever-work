@@ -8,6 +8,8 @@ import {
   Building2, Globe, Megaphone, LineChart, Send, MessageCircle
 } from "lucide-react";
 import { SiWhatsapp, SiGoogle, SiFacebook, SiInstagram } from "react-icons/si";
+import { LeadPopup } from "@/components/LeadPopup";
+import { LeadForm } from "@/components/LeadForm";
 
 function RENav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,46 +89,62 @@ function REHero() {
       </div>
 
       <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-16">
-        <div className="max-w-3xl">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="re-label mb-6">
-              <Target className="w-3.5 h-3.5" />
-              Real Estate Performance Marketing Agency
-            </div>
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-3">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <div className="re-label mb-6">
+                <Target className="w-3.5 h-3.5" />
+                Real Estate Performance Marketing Agency
+              </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.12] mb-6" data-testid="re-hero-title">
-              We Generate <span className="re-text-accent">High-Intent Buyer Leads</span> for Real Estate Developers
-            </h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.12] mb-6" data-testid="re-hero-title">
+                We Generate <span className="re-text-accent">High-Intent Buyer Leads</span> for Real Estate Developers
+              </h1>
 
-            <p className="text-base md:text-lg text-white/65 max-w-xl mb-8 leading-relaxed">
-              Performance-driven Google & Meta Ads campaigns that deliver qualified leads, site visits, and bookings.
-              Not impressions. Not clicks. <span className="text-white font-semibold">Actual revenue.</span>
-            </p>
+              <p className="text-base md:text-lg text-white/65 max-w-xl mb-8 leading-relaxed">
+                Performance-driven Google & Meta Ads campaigns that deliver qualified leads, site visits, and bookings.
+                Not impressions. Not clicks. <span className="text-white font-semibold">Actual revenue.</span>
+              </p>
 
-            <div className="flex flex-wrap items-center gap-3 mb-10">
-              <a href="https://wa.me/918766350093?text=Hi,%20I%20need%20performance%20marketing%20for%20my%20real%20estate%20project.%20Lets%20discuss." target="_blank" rel="noopener noreferrer" className="re-btn re-btn--primary" data-testid="re-hero-whatsapp">
-                <SiWhatsapp className="w-5 h-5" />
-                Get Free Strategy Call
-              </a>
-              <a href="tel:+918766350093" className="re-btn re-btn--glass" data-testid="re-hero-call">
-                <Phone className="w-5 h-5" />
-                Call: 8766 3500 93
-              </a>
-            </div>
+              <div className="flex flex-wrap items-center gap-3 mb-10">
+                <a href="https://wa.me/918766350093?text=Hi,%20I%20need%20performance%20marketing%20for%20my%20real%20estate%20project.%20Lets%20discuss." target="_blank" rel="noopener noreferrer" className="re-btn re-btn--primary" data-testid="re-hero-whatsapp">
+                  <SiWhatsapp className="w-5 h-5" />
+                  Get Free Strategy Call
+                </a>
+                <a href="tel:+918766350093" className="re-btn re-btn--glass" data-testid="re-hero-call">
+                  <Phone className="w-5 h-5" />
+                  Call: 8766 3500 93
+                </a>
+              </div>
 
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
-              {[
-                { val: "6x-12x", label: "Marketing ROI" },
-                { val: "970+", label: "Projects Managed" },
-                { val: "45-60%", label: "Lead Qualification" },
-              ].map((s, i) => (
-                <div key={i} className="flex items-center gap-3" data-testid={`re-hero-stat-${i}`}>
-                  <div className="text-2xl md:text-3xl font-bold text-white">{s.val}</div>
-                  <div className="text-xs text-white/45 leading-tight max-w-[80px]">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                {[
+                  { val: "6x-12x", label: "Marketing ROI" },
+                  { val: "970+", label: "Projects Managed" },
+                  { val: "45-60%", label: "Lead Qualification" },
+                ].map((s, i) => (
+                  <div key={i} className="flex items-center gap-3" data-testid={`re-hero-stat-${i}`}>
+                    <div className="text-2xl md:text-3xl font-bold text-white">{s.val}</div>
+                    <div className="text-xs text-white/45 leading-tight max-w-[80px]">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="lg:col-span-2 hidden lg:block">
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+              <LeadForm
+                source="hero"
+                page="/real-estate"
+                variant="glass"
+                showProjectField
+                showBudgetField
+                title="Get Free Strategy Call"
+                subtitle="Share your details. We'll call within 30 mins."
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -227,6 +245,18 @@ function REResults() {
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3">Projections are indicative and subject to market conditions, inventory, pricing, and sales execution.</p>
+        </div>
+
+        <div className="mt-16 max-w-xl mx-auto">
+          <LeadForm
+            source="results"
+            page="/real-estate"
+            variant="light"
+            showProjectField
+            showBudgetField
+            title="Want These Results for Your Project?"
+            subtitle="Share your details and get a custom campaign plan."
+          />
         </div>
       </div>
     </section>
@@ -523,22 +553,38 @@ function RECTA() {
         <img src="/images/realestate/property-5.jpg" alt="CTA background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a1a]/90 via-[#0a0a1a]/80 to-[#0a0a1a]/60" />
       </div>
-      <div className="relative container mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5" data-testid="re-cta-title">
-          Ready to Generate <span className="re-text-accent">Real Leads?</span>
-        </h2>
-        <p className="text-white/60 max-w-xl mx-auto mb-8 leading-relaxed">
-          Schedule a free strategy call. We'll audit your current campaigns, show you where you're losing budget, and present a performance plan tailored to your project.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <a href="https://wa.me/918766350093?text=Hi,%20I%20want%20a%20free%20strategy%20call%20for%20my%20real%20estate%20project." target="_blank" rel="noopener noreferrer" className="re-btn re-btn--primary" data-testid="re-cta-whatsapp">
-            <SiWhatsapp className="w-5 h-5" />
-            Get Free Strategy Call
-          </a>
-          <a href="tel:+918766350093" className="re-btn re-btn--glass" data-testid="re-cta-call">
-            <Phone className="w-5 h-5" />
-            Call: 8766 3500 93
-          </a>
+      <div className="relative container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5" data-testid="re-cta-title">
+              Ready to Generate <span className="re-text-accent">Real Leads?</span>
+            </h2>
+            <p className="text-white/60 mb-8 leading-relaxed">
+              Schedule a free strategy call. We'll audit your current campaigns, show you where you're losing budget, and present a performance plan tailored to your project.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="https://wa.me/918766350093?text=Hi,%20I%20want%20a%20free%20strategy%20call%20for%20my%20real%20estate%20project." target="_blank" rel="noopener noreferrer" className="re-btn re-btn--primary" data-testid="re-cta-whatsapp">
+                <SiWhatsapp className="w-5 h-5" />
+                Get Free Strategy Call
+              </a>
+              <a href="tel:+918766350093" className="re-btn re-btn--glass" data-testid="re-cta-call">
+                <Phone className="w-5 h-5" />
+                Call: 8766 3500 93
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <LeadForm
+              source="cta"
+              page="/real-estate"
+              variant="glass"
+              showProjectField
+              showBudgetField
+              title="Request a Free Audit"
+              subtitle="We'll review your campaigns and share actionable insights."
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -633,6 +679,7 @@ export default function RealEstate() {
         <RECTA />
       </main>
       <REFooter />
+      <LeadPopup page="/real-estate" variant="light" />
     </div>
   );
 }

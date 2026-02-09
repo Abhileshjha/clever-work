@@ -40,14 +40,14 @@ export function ContactFooter() {
                 href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="trk-btn trk-btn--primary !py-3 !px-6 !text-sm"
+                className="trk-btn trk-btn--primary trk-btn--sm"
                 data-testid="link-footer-whatsapp"
               >
                 WhatsApp Me <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="mailto:thecleverwork@gmail.com"
-                className="trk-btn trk-btn--outline !py-3 !px-6 !text-sm"
+                className="trk-btn trk-btn--outline trk-btn--sm"
                 data-testid="link-footer-send-email"
               >
                 Send Email

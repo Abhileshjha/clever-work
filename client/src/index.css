@@ -312,6 +312,9 @@
   }
 }
 
+.trk-btn--sm { padding: 10px 20px; font-size: 13px; }
+@media (min-width: 768px) { .trk-btn--sm { padding: 11px 24px; font-size: 14px; } }
+
 .trk-btn--primary {
   background: hsl(142 70% 45%);
   color: hsl(0 0% 5%);
