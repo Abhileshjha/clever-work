@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { X, Phone, Send } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { apiRequest } from "@/lib/queryClient";
@@ -14,11 +14,18 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [city, setCity] = useState("");
+  const [marketingBudget, setMarketingBudget] = useState("");
+  const [monthlyLeads, setMonthlyLeads] = useState("");
   const [error, setError] = useState("");
-  const [hasShownOnce, setHasShownOnce] = useState(false);
+  const dismissedRef = useRef(false);
+  const timerFiredRef = useRef(false);
+  const scrollFiredRef = useRef(false);
+  const exitFiredRef = useRef(false);
 
   const showPopup = useCallback(() => {
-    if (!submitted) {
+    if (!submitted && !dismissedRef.current) {
       setShow(true);
     }
   }, [submitted]);
@@ -26,23 +33,47 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
   useEffect(() => {
     if (submitted) return;
 
-    if (!hasShownOnce) {
-      const initialTimer = setTimeout(() => {
+    const delay = 15000 + Math.random() * 5000;
+    const timer = setTimeout(() => {
+      if (!timerFiredRef.current) {
+        timerFiredRef.current = true;
         showPopup();
-        setHasShownOnce(true);
-      }, 15000);
-      return () => clearTimeout(initialTimer);
-    }
-  }, [hasShownOnce, showPopup, submitted]);
+      }
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [submitted, showPopup]);
 
   useEffect(() => {
-    if (!hasShownOnce || submitted || show) return;
+    if (submitted) return;
 
-    const repeatTimer = setTimeout(() => {
-      showPopup();
-    }, 10000);
-    return () => clearTimeout(repeatTimer);
-  }, [hasShownOnce, submitted, show, showPopup]);
+    const handleScroll = () => {
+      if (scrollFiredRef.current) return;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+      if (scrollPercent >= 40) {
+        scrollFiredRef.current = true;
+        showPopup();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [submitted, showPopup]);
+
+  useEffect(() => {
+    if (submitted) return;
+
+    const handleExitIntent = (e: MouseEvent) => {
+      if (exitFiredRef.current) return;
+      if (e.clientY <= 5) {
+        exitFiredRef.current = true;
+        showPopup();
+      }
+    };
+
+    document.addEventListener("mouseout", handleExitIntent);
+    return () => document.removeEventListener("mouseout", handleExitIntent);
+  }, [submitted, showPopup]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,6 +93,10 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
       await apiRequest("POST", "/api/leads", {
         name: name.trim(),
         phone: phone.trim(),
+        companyName: companyName.trim() || undefined,
+        city: city.trim() || undefined,
+        marketingBudget: marketingBudget || undefined,
+        monthlyLeads: monthlyLeads.trim() || undefined,
         source: "popup",
         page,
       });
@@ -75,11 +110,24 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
 
   const handleClose = () => {
     setShow(false);
+    dismissedRef.current = true;
   };
 
   if (!show) return null;
 
   const isDark = variant === "dark";
+
+  const inputClass = `w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors ${
+    isDark
+      ? "bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-green-500/50"
+      : "bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#0d7c5f]/50"
+  }`;
+
+  const selectClass = `w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors appearance-none ${
+    isDark
+      ? "bg-white/5 border border-white/10 text-white focus:border-green-500/50"
+      : "bg-gray-50 border border-gray-200 text-gray-900 focus:border-[#0d7c5f]/50"
+  }`;
 
   return (
     <div
@@ -96,7 +144,7 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
       >
         <button
           onClick={handleClose}
-          className={`absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 rounded-full transition-colors ${
+          className={`absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 rounded-full transition-colors z-10 ${
             isDark ? "text-white/50 hover:text-white hover:bg-white/10" : "text-gray-400 hover:text-gray-700 hover:bg-gray-100"
           }`}
           data-testid="lead-popup-close"
@@ -153,27 +201,57 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
             <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder="Your Name *"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className={`w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors ${
-                  isDark
-                    ? "bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-green-500/50"
-                    : "bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#0d7c5f]/50"
-                }`}
+                className={inputClass}
                 data-testid="lead-popup-name"
               />
               <input
                 type="tel"
-                placeholder="Phone Number"
+                placeholder="Phone Number *"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className={`w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors ${
-                  isDark
-                    ? "bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-green-500/50"
-                    : "bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#0d7c5f]/50"
-                }`}
+                className={inputClass}
                 data-testid="lead-popup-phone"
+              />
+              <input
+                type="text"
+                placeholder="Company Name"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                className={inputClass}
+                data-testid="lead-popup-company"
+              />
+              <input
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                className={inputClass}
+                data-testid="lead-popup-city"
+              />
+              <div className="relative">
+                <select
+                  value={marketingBudget}
+                  onChange={(e) => setMarketingBudget(e.target.value)}
+                  className={selectClass}
+                  style={!marketingBudget ? { color: isDark ? "rgba(255,255,255,0.3)" : "rgb(156,163,175)" } : undefined}
+                  data-testid="lead-popup-marketing-budget"
+                >
+                  <option value="" disabled style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>Monthly Marketing Budget?</option>
+                  <option value="Below ₹50K" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>Below ₹50K</option>
+                  <option value="₹50K–₹2L" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>₹50K–₹2L</option>
+                  <option value="₹2L+" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>₹2L+</option>
+                </select>
+              </div>
+              <input
+                type="text"
+                placeholder="How many leads do you currently generate per month?"
+                value={monthlyLeads}
+                onChange={(e) => setMonthlyLeads(e.target.value)}
+                className={inputClass}
+                data-testid="lead-popup-monthly-leads"
               />
 
               {error && (

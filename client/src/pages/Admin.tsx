@@ -102,12 +102,15 @@ function LeadsDashboard({ username, onLogout }: { username: string; onLogout: ()
   });
 
   const filtered = leads.filter((lead) => {
+    const s = searchTerm.toLowerCase();
     const matchesSearch =
       !searchTerm ||
-      lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      lead.name.toLowerCase().includes(s) ||
       lead.phone.includes(searchTerm) ||
-      (lead.email && lead.email.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (lead.projectName && lead.projectName.toLowerCase().includes(searchTerm.toLowerCase()));
+      (lead.email && lead.email.toLowerCase().includes(s)) ||
+      (lead.projectName && lead.projectName.toLowerCase().includes(s)) ||
+      (lead.companyName && lead.companyName.toLowerCase().includes(s)) ||
+      (lead.city && lead.city.toLowerCase().includes(s));
     const matchesSource = sourceFilter === "all" || lead.source === sourceFilter;
     const matchesPage = pageFilter === "all" || lead.page === pageFilter;
     return matchesSearch && matchesSource && matchesPage;
@@ -117,11 +120,15 @@ function LeadsDashboard({ username, onLogout }: { username: string; onLogout: ()
   const pages = Array.from(new Set(leads.map((l) => l.page)));
 
   const exportCSV = () => {
-    const headers = ["Name", "Phone", "Email", "Project", "Budget", "Source", "Page", "Date"];
+    const headers = ["Name", "Phone", "Email", "Company", "City", "Marketing Budget", "Monthly Leads", "Project", "Budget", "Source", "Page", "Date"];
     const rows = filtered.map((l) => [
       l.name,
       l.phone,
       l.email || "",
+      l.companyName || "",
+      l.city || "",
+      l.marketingBudget || "",
+      l.monthlyLeads || "",
       l.projectName || "",
       l.budget || "",
       l.source,
@@ -254,6 +261,10 @@ function LeadsDashboard({ username, onLogout }: { username: string; onLogout: ()
                     <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">#</th>
                     <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Name</th>
                     <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Phone</th>
+                    <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Company</th>
+                    <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">City</th>
+                    <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Mkt Budget</th>
+                    <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Monthly Leads</th>
                     <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Email</th>
                     <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Project</th>
                     <th className="px-4 py-3 font-medium text-gray-500 text-xs uppercase tracking-wider">Budget</th>
@@ -272,6 +283,16 @@ function LeadsDashboard({ username, onLogout }: { username: string; onLogout: ()
                           <Phone className="w-3 h-3" /> {lead.phone}
                         </a>
                       </td>
+                      <td className="px-4 py-3 text-gray-600">{lead.companyName || <span className="text-gray-300">-</span>}</td>
+                      <td className="px-4 py-3 text-gray-600">{lead.city || <span className="text-gray-300">-</span>}</td>
+                      <td className="px-4 py-3 text-gray-600">
+                        {lead.marketingBudget ? (
+                          <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700">{lead.marketingBudget}</span>
+                        ) : (
+                          <span className="text-gray-300">-</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 text-gray-600">{lead.monthlyLeads || <span className="text-gray-300">-</span>}</td>
                       <td className="px-4 py-3 text-gray-500">
                         {lead.email ? (
                           <a href={`mailto:${lead.email}`} className="flex items-center gap-1 text-gray-600" style={{ textDecoration: "none" }}>
