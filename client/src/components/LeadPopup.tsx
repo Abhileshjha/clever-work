@@ -240,9 +240,9 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
                   data-testid="lead-popup-marketing-budget"
                 >
                   <option value="" disabled style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>Monthly Marketing Budget?</option>
-                  <option value="Below ₹50K" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>Below ₹50K</option>
-                  <option value="₹50K–₹2L" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>₹50K–₹2L</option>
-                  <option value="₹2L+" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>₹2L+</option>
+                  <option value="₹2L–₹5L/month" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>₹2L–₹5L / month</option>
+                  <option value="₹5L–₹10L/month" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>₹5L–₹10L / month</option>
+                  <option value="₹10L+/month" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>More than ₹10L / month</option>
                 </select>
               </div>
               <input

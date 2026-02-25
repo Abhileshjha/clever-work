@@ -124,10 +124,10 @@ export async function registerRoutes(
 }
 
 async function seedAdmin() {
-  const existing = await storage.getAdminByUsername("Ugna1908");
+  const existing = await storage.getAdminByUsername("admin");
   if (!existing) {
     const hash = await bcrypt.hash("Ugna@19082022", 10);
-    await storage.createAdminUser("Ugna1908", hash);
-    console.log("Admin user created: Ugna1908");
+    await storage.createAdminUser("admin", hash);
+    console.log("Admin user created: admin");
   }
 }

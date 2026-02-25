@@ -10,6 +10,12 @@ import {
 import { SiWhatsapp, SiGoogle, SiFacebook, SiInstagram } from "react-icons/si";
 import { LeadPopup } from "@/components/LeadPopup";
 import { LeadForm } from "@/components/LeadForm";
+import eldecoLogo from "@assets/15822781501407518180_1772036610402.png";
+import smartworldLogo from "@assets/smartworld-blue-logo_1772036610402.png";
+import aceLogo from "@assets/images_(1)_1772036610403.png";
+import migsunLogo from "@assets/maxresdefault_1772036610403.jpg";
+import m3mLogo from "@assets/c2VydmljZT1pbWFnZXMmc3JjPWh0dHBzJTNBJTJGJTJGd3d3LnNhcGllbnRyZ_1772036610403.webp";
+import godrejLogo from "@assets/GPL_Logo_1772036610404.jpg";
 
 function RENav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -238,9 +244,9 @@ function REResults() {
                 </tr>
               </thead>
               <tbody>
-                <tr><td>5 Lakhs</td><td>180 - 250</td><td>30 - 45</td><td>2 - 4</td></tr>
-                <tr><td>10 Lakhs</td><td>350 - 500</td><td>60 - 90</td><td>4 - 7</td></tr>
-                <tr><td>20 Lakhs</td><td>700 - 1,000</td><td>120 - 180</td><td>8 - 14</td></tr>
+                <tr><td>5 Lakhs</td><td>360 - 500</td><td>60 - 90</td><td>4 - 8</td></tr>
+                <tr><td>10 Lakhs</td><td>700 - 1,000</td><td>120 - 180</td><td>8 - 14</td></tr>
+                <tr><td>20 Lakhs</td><td>1,400 - 2,000</td><td>240 - 360</td><td>16 - 28</td></tr>
               </tbody>
             </table>
           </div>
@@ -311,7 +317,14 @@ function REServices() {
 
 function REPortfolio() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
-  const clients = ["Godrej Properties", "M3M India", "Migsun Group", "ACE Group", "Smartworld Developers"];
+  const clientLogos = [
+    { name: "Godrej Properties", src: godrejLogo },
+    { name: "M3M India", src: m3mLogo },
+    { name: "Migsun Group", src: migsunLogo },
+    { name: "ACE Group", src: aceLogo },
+    { name: "Smartworld Developers", src: smartworldLogo },
+    { name: "Eldeco", src: eldecoLogo },
+  ];
   const cities = ["Noida & Greater Noida", "Gurgaon", "Mumbai", "Pune", "Thane", "Hyderabad", "Dubai"];
 
   return (
@@ -332,9 +345,11 @@ function REPortfolio() {
 
             <div className="mb-8">
               <h4 className="text-sm font-bold re-text-dark uppercase tracking-wider mb-4">Worked With</h4>
-              <div className="flex flex-wrap gap-2">
-                {clients.map((c, i) => (
-                  <span key={i} className="re-client-chip" data-testid={`re-client-${i}`}>{c}</span>
+              <div className="flex flex-wrap items-center gap-4">
+                {clientLogos.map((c, i) => (
+                  <div key={i} className="bg-white rounded-xl border border-gray-200 p-3 flex items-center justify-center" style={{ width: 120, height: 60 }} data-testid={`re-client-${i}`}>
+                    <img src={c.src} alt={c.name} className="max-w-full max-h-full object-contain" style={{ width: "auto", height: "auto", maxWidth: "100%", maxHeight: "100%" }} />
+                  </div>
                 ))}
               </div>
             </div>

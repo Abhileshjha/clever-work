@@ -6,7 +6,7 @@ This is a freelancer portfolio website for "The Clever Work" — a full-stack de
 
 1. **Main Portfolio** (`/`) — Single-page marketing site with hero, tech stack marquee, stats/about, experience timeline (accordion services + tech grid), portfolio showcase (21 project screenshots), pricing plans, and contact footer. Uses dark theme with green accent. Includes a timed lead capture popup.
 2. **Real Estate Landing** (`/real-estate`) — A B2B performance marketing agency landing page targeting real estate developers. Sections: Hero with inline lead form, Problems, Results with ROI table + inline lead form, Services (6 cards), Portfolio/Clients, Pricing (3 tiers: 30K-60K, 60K-85K, 90K-1.5L), Process timeline, Why Us, CTA with inline lead form, Footer. Uses light theme with teal-green accent (#0d7c5f). Includes a timed lead capture popup.
-3. **Admin Dashboard** (`/admin`) — Protected admin page with login. Shows all leads from both pages in a searchable, filterable table with CSV export. Login credentials: Ugna1908 / Ugna@19082022.
+3. **Admin Dashboard** (`/admin`) — Protected admin page with login. Shows all leads from both pages in a searchable, filterable table with CSV export. Login credentials: admin / Ugna@19082022.
 
 Both landing pages use phone 8766350093 and email thecleverwork@gmail.com. The site includes a backend API for leads, contact messages, and admin authentication with session management.
 
