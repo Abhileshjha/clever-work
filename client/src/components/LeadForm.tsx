@@ -151,7 +151,7 @@ export function LeadForm({
         {showProjectField && (
           <input
             type="text"
-            placeholder="Project Name"
+            placeholder="Company Name"
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
             className={inputClass}

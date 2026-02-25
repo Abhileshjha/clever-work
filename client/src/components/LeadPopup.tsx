@@ -17,7 +17,6 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
   const [companyName, setCompanyName] = useState("");
   const [city, setCity] = useState("");
   const [marketingBudget, setMarketingBudget] = useState("");
-  const [monthlyLeads, setMonthlyLeads] = useState("");
   const [error, setError] = useState("");
   const dismissedRef = useRef(false);
   const timerFiredRef = useRef(false);
@@ -96,7 +95,6 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
         companyName: companyName.trim() || undefined,
         city: city.trim() || undefined,
         marketingBudget: marketingBudget || undefined,
-        monthlyLeads: monthlyLeads.trim() || undefined,
         source: "popup",
         page,
       });
@@ -245,15 +243,6 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
                   <option value="₹10L+/month" style={{ color: isDark ? "#fff" : "#111", backgroundColor: isDark ? "#1a1a3e" : "#fff" }}>More than ₹10L / month</option>
                 </select>
               </div>
-              <input
-                type="text"
-                placeholder="How many leads do you currently generate per month?"
-                value={monthlyLeads}
-                onChange={(e) => setMonthlyLeads(e.target.value)}
-                className={inputClass}
-                data-testid="lead-popup-monthly-leads"
-              />
-
               {error && (
                 <p className="text-xs text-red-400">{error}</p>
               )}
