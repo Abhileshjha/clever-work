@@ -88,7 +88,7 @@ export function Stats() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-0.5">Phone</p>
-                  <h6 className="text-sm font-semibold text-foreground">+91 8766 3500 93</h6>
+                  <h6 className="text-sm font-semibold text-foreground">+91 8766350093</h6>
                 </div>
               </a>
             </div>

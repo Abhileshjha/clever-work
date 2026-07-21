@@ -10,12 +10,6 @@ import {
 import { SiWhatsapp, SiGoogle, SiFacebook, SiInstagram } from "react-icons/si";
 import { LeadPopup } from "@/components/LeadPopup";
 import { LeadForm } from "@/components/LeadForm";
-import eldecoLogo from "@assets/15822781501407518180_1772036610402.png";
-import smartworldLogo from "@assets/smartworld-blue-logo_1772036610402.png";
-import aceLogo from "@assets/images_(1)_1772036610403.png";
-import migsunLogo from "@assets/maxresdefault_1772036610403.jpg";
-import m3mLogo from "@assets/c2VydmljZT1pbWFnZXMmc3JjPWh0dHBzJTNBJTJGJTJGd3d3LnNhcGllbnRyZ_1772036610403.webp";
-import godrejLogo from "@assets/GPL_Logo_1772036610404.jpg";
 
 function RENav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -119,7 +113,7 @@ function REHero() {
                 </a>
                 <a href="tel:+918766350093" className="re-btn re-btn--glass" data-testid="re-hero-call">
                   <Phone className="w-5 h-5" />
-                  Call: 8766 3500 93
+                  Call: 8766350093
                 </a>
               </div>
 
@@ -318,12 +312,12 @@ function REServices() {
 function REPortfolio() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
   const clientLogos = [
-    { name: "Godrej Properties", src: godrejLogo },
-    { name: "M3M India", src: m3mLogo },
-    { name: "Migsun Group", src: migsunLogo },
-    { name: "ACE Group", src: aceLogo },
-    { name: "Smartworld Developers", src: smartworldLogo },
-    { name: "Eldeco", src: eldecoLogo },
+    { name: "Godrej Properties", src: "/images/portfolio/1.png" },
+    { name: "M3M India", src: "/images/portfolio/2.png" },
+    { name: "Migsun Group", src: "/images/portfolio/3.png" },
+    { name: "ACE Group", src: "/images/portfolio/4.png" },
+    { name: "Smartworld Developers", src: "/images/portfolio/5.png" },
+    { name: "Eldeco", src: "/images/portfolio/6.png" },
   ];
   const cities = ["Noida & Greater Noida", "Gurgaon", "Mumbai", "Pune", "Thane", "Hyderabad", "Dubai"];
 
@@ -588,7 +582,7 @@ function RECTA() {
               </a>
               <a href="tel:+918766350093" className="re-btn re-btn--glass" data-testid="re-cta-call">
                 <Phone className="w-5 h-5" />
-                Call: 8766 3500 93
+                Call: 8766350093
               </a>
             </div>
           </div>
@@ -633,7 +627,7 @@ function REFooter() {
               </a>
               <a href="tel:+918766350093" className="flex items-center gap-3 text-sm text-gray-500" style={{ textDecoration: 'none' }} data-testid="re-footer-phone">
                 <Phone className="w-4 h-4 re-text-accent shrink-0" />
-                <span>+91 8766 3500 93</span>
+                <span>+91 8766350093</span>
               </a>
               <div className="flex items-center gap-3 text-sm text-gray-500">
                 <MapPin className="w-4 h-4 re-text-accent shrink-0" />

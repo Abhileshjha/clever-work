@@ -4,7 +4,7 @@ import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 import bcrypt from "bcrypt";
 import { storage } from "./storage";
-import { pool } from "./db";
+import { hasDatabase, pool } from "./db";
 import { api } from "@shared/routes";
 import { z } from "zod";
 
@@ -22,21 +22,54 @@ function requireAdmin(req: Request, res: Response, next: NextFunction) {
   next();
 }
 
+async function sendLeadEmail(lead: Awaited<ReturnType<typeof storage.createLead>>) {
+  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.warn("LEAD_WEBHOOK_URL not configured; skipping lead notification.");
+    return;
+  }
+
+  const payload = {
+    name: lead.name,
+    phone: lead.phone,
+    email: lead.email || null,
+    projectName: lead.projectName || null,
+    budget: lead.budget || null,
+    companyName: lead.companyName || null,
+    city: lead.city || null,
+    marketingBudget: lead.marketingBudget || null,
+    monthlyLeads: lead.monthlyLeads || null,
+    source: lead.source || "popup",
+    page: lead.page || "/",
+    createdAt: lead.createdAt ? new Date(lead.createdAt).toISOString() : null,
+  };
+
+  await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
   const PgStore = connectPgSimple(session);
+  const sessionStore = hasDatabase && pool
+    ? new PgStore({ pool, createTableIfMissing: true })
+    : new session.MemoryStore();
+
   app.use(
     session({
-      store: new PgStore({ pool, createTableIfMissing: true }),
+      store: sessionStore,
       secret: process.env.SESSION_SECRET || "dev-secret-key",
       resave: false,
       saveUninitialized: false,
       cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: false,
+        secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
       },
     })
@@ -64,6 +97,11 @@ export async function registerRoutes(
     try {
       const input = api.leads.create.input.parse(req.body);
       const lead = await storage.createLead(input);
+      try {
+        await sendLeadEmail(lead);
+      } catch (error) {
+        console.error("Failed to send lead email notification:", error);
+      }
       res.status(201).json(lead);
     } catch (err) {
       if (err instanceof z.ZodError) {
@@ -124,10 +162,15 @@ export async function registerRoutes(
 }
 
 async function seedAdmin() {
-  const existing = await storage.getAdminByUsername("admin");
+  const username = process.env.ADMIN_USERNAME;
+  const password = process.env.ADMIN_PASSWORD;
+  if (!username || !password) {
+    throw new Error("ADMIN_USERNAME and ADMIN_PASSWORD must be configured");
+  }
+  const existing = await storage.getAdminByUsername(username);
   if (!existing) {
-    const hash = await bcrypt.hash("Ugna@19082022", 10);
-    await storage.createAdminUser("admin", hash);
-    console.log("Admin user created: admin");
+    const hash = await bcrypt.hash(password, 10);
+    await storage.createAdminUser(username, hash);
+    console.log(`Admin user created: ${username}`);
   }
 }

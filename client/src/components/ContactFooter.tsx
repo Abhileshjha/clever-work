@@ -27,7 +27,7 @@ export function ContactFooter() {
               </a>
               <a href="tel:+918766350093" className="flex items-center gap-3 text-sm text-muted-foreground" style={{ textDecoration: 'none' }} data-testid="link-footer-phone">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span>+91 8766 3500 93</span>
+                <span>+91 8766350093</span>
               </a>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary shrink-0" />

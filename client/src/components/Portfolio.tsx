@@ -48,7 +48,7 @@ export function Portfolio() {
             style={{ textDecoration: 'none' }}
             data-testid="link-whatsapp-portfolio"
           >
-            <Phone className="w-3.5 h-3.5" /> : +91 8766 3500 93
+            <Phone className="w-3.5 h-3.5" /> : +91 8766350093
           </a>
         </div>
 

@@ -6,6 +6,12 @@ import { createServer } from "http";
 const app = express();
 const httpServer = createServer(app);
 
+// The production app runs behind Hostinger's HTTPS proxy. This lets Express
+// correctly recognize secure requests when it creates session cookies.
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
+
 declare module "http" {
   interface IncomingMessage {
     rawBody: unknown;
@@ -94,7 +100,6 @@ app.use((req, res, next) => {
     {
       port,
       host: "0.0.0.0",
-      reusePort: true,
     },
     () => {
       log(`serving on port ${port}`);
