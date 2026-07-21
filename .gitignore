@@ -4,3 +4,11 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local app data and generated build output
+data/app-data.json
