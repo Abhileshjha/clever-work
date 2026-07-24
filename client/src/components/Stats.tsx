@@ -37,7 +37,7 @@ export function Stats() {
                 className="floating-card bottom-8 -left-4 md:bottom-12 md:-left-8"
               >
                 <h3 data-testid="text-stat-projects">970+</h3>
-                <p>Projects Delivered</p>
+                <p>Campaigns Delivered</p>
               </motion.div>
 
               <motion.div
@@ -47,7 +47,7 @@ export function Stats() {
                 className="floating-card -top-4 -right-4 md:top-4 md:-right-8"
               >
                 <h3 data-testid="text-stat-ecom">570+</h3>
-                <p>eCom Developed !</p>
+                <p>Brands Grown !</p>
               </motion.div>
             </div>
           </motion.div>
@@ -63,12 +63,12 @@ export function Stats() {
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
-              freelancer Developer.
+              Digital Marketing Agency.
             </h2>
 
             <p className="text-muted-foreground mb-8 leading-relaxed text-base">
-              Contact me today and we can discuss the Quote for your project.
-              We have 2 free meetings before we start the project.
+              Contact us today and let's discuss a growth plan for your business.
+              We offer 2 free strategy calls before we start any project.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -102,7 +102,7 @@ export function Stats() {
                 Send Email
               </a>
               <a
-                href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+                href="https://wa.me/918766350093?text=Hi,%20I%20found%20you%20at%20thecleverwork%20and%20I'm%20looking%20for%20digital%20marketing%20services.%20I'd%20like%20to%20know%20more."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="trk-btn trk-btn--outline"

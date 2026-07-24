@@ -187,12 +187,12 @@ export function LeadPopup({ page, variant = "dark" }: LeadPopupProps) {
               <h3 className={`text-lg sm:text-xl font-bold mb-1 sm:mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`} data-testid="lead-popup-title">
                 {page === "/real-estate"
                   ? "Get a Free Strategy Call"
-                  : "Get a Free Quote"}
+                  : "Get a Free Marketing Consultation"}
               </h3>
               <p className={`text-sm ${isDark ? "text-white/50" : "text-gray-500"}`}>
                 {page === "/real-estate"
                   ? "Share your details and our team will call you back with a custom campaign plan."
-                  : "Tell us about your project and we'll get back to you with a quote."}
+                  : "Tell us about your business and we'll get back to you with a growth plan."}
               </p>
             </div>
 

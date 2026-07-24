@@ -4,8 +4,8 @@ import { SiWhatsapp } from "react-icons/si";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#portfolio", label: "Portfolio" },
+  { href: "#experience", label: "Services" },
+  { href: "#portfolio", label: "Work" },
   { href: "#pricing", label: "Pricing" },
   { href: "#contact", label: "Contact" },
 ];
@@ -52,7 +52,7 @@ export function Navigation() {
             </a>
           ))}
           <a
-            href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+            href="https://wa.me/918766350093?text=Hi,%20I%20found%20you%20at%20thecleverwork%20and%20I'm%20looking%20for%20digital%20marketing%20services.%20I'd%20like%20to%20know%20more."
             target="_blank"
             rel="noopener noreferrer"
             className="trk-btn trk-btn--primary trk-btn--sm"
@@ -88,7 +88,7 @@ export function Navigation() {
               </a>
             ))}
             <a
-              href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+              href="https://wa.me/918766350093?text=Hi,%20I%20found%20you%20at%20thecleverwork%20and%20I'm%20looking%20for%20digital%20marketing%20services.%20I'd%20like%20to%20know%20more."
               target="_blank"
               rel="noopener noreferrer"
               className="trk-btn trk-btn--primary justify-center mt-2"

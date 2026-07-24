@@ -25,23 +25,23 @@ export function Portfolio() {
         </div>
 
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
-          Some of my past <span className="text-primary">Projects</span>
+          Some of our recent <span className="text-primary">Work</span>
         </h2>
 
         <p className="text-muted-foreground max-w-2xl mb-4 leading-relaxed text-base">
-          Website, APPs and more. i have been doing this for long,
-          i can build your tech with great quality and security.
+          Campaigns, websites and more. We've been doing this for over a decade,
+          and we bring the same quality and care to every brand we work with.
         </p>
 
         <div className="mb-10 max-w-2xl">
           <p className="text-base text-foreground font-bold mb-1">
-            I am a full time freelancer working for 10 years, i can build you what you want in QUALITY
+            We're a full-time digital marketing team with 10+ years of experience, delivering real results in QUALITY
           </p>
           <p className="text-sm text-muted-foreground mb-2">
-            My quotes would be great and the support + Quality would be AWESOME. Write me now for any questions.
+            Our pricing is competitive and our support + Quality is AWESOME. Write to us now for any questions.
           </p>
           <a
-            href="https://wa.me/918766350093?text=Hello,%20found%20you%20@%20thecleverwork%20i%20am%20looking%20for%20a%20Website/APP."
+            href="https://wa.me/918766350093?text=Hello,%20found%20you%20@%20thecleverwork%20i%20am%20looking%20for%20digital%20marketing%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-primary font-semibold"

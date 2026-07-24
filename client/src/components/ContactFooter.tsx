@@ -15,9 +15,9 @@ export function ContactFooter() {
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed text-sm">
-              Ready to start your project? Contact me today for a quote.
-              I offer 2 free consultation meetings before kicking off.
-              Let's build something great together.
+              Ready to grow your business? Contact us today for a free consultation.
+              We offer 2 free strategy calls before kicking off any project.
+              Let's grow together.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -37,7 +37,7 @@ export function ContactFooter() {
 
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+                href="https://wa.me/918766350093?text=Hi,%20I%20found%20you%20at%20thecleverwork%20and%20I'm%20looking%20for%20digital%20marketing%20services.%20I'd%20like%20to%20know%20more."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="trk-btn trk-btn--primary trk-btn--sm"
@@ -74,7 +74,7 @@ export function ContactFooter() {
           <div>
             <h4 className="text-base font-bold mb-5">Services</h4>
             <div className="flex flex-col gap-3">
-              {["Web Design", "APP Development", "Consultation", "Marketing", "eCom Development"].map((service) => (
+              {["SEO & Google Ads", "Social Media & Meta Ads", "Lead Generation", "Web Design", "Branding & Content"].map((service) => (
                 <a
                   key={service}
                   href="#experience"

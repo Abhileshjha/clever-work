@@ -10,45 +10,45 @@ const SparkleIcon = () => (
 
 const plans = [
   {
-    label: "Informative Websites",
-    price: "10-25K Rs.",
+    label: "SEO & Google Ads",
+    price: "15-30K Rs/mo",
     cta: "Pay 999 Now",
-    desc: "Best for company website, portfolio, informative website or landing pages. Free 30 mins consultancy if paid now.",
+    desc: "Best for businesses wanting more visibility on Google. On-page SEO, keyword research and hands-on Google Ads management. Free 30 mins consultancy if paid now.",
     features: [
-      "Mobile Responsive",
-      "Dynamic with Admin panel",
-      "1 year warranty",
-      "On-Page SEO",
+      "Keyword Research & On-Page SEO",
+      "Google Ads Setup & Management",
+      "Monthly Performance Reports",
+      "1 Free Strategy Call",
       "Payment plan 33% x 3",
     ],
     highlight: false,
   },
   {
-    label: "eCom",
-    price: "25-55K Rs",
+    label: "Social Media & Meta Ads",
+    price: "25-50K Rs/mo",
     cta: "Deposit Rs: 999",
     badge: "Expert",
-    desc: "Sell anything online, Shopify, Wordpress, PHP and custom. Grocery, food delivery, Sell anything online. Free 30 mins consultancy if paid now.",
+    desc: "Grow your brand on Instagram and Facebook with content, community management and performance-driven Meta Ads campaigns. Free 30 mins consultancy if paid now.",
     features: [
-      "Responsive, Dynamic eCom",
-      "Shopify, WP, Custom With Admin.",
-      "Categories, sub cat, Filters, Search",
-      "Add to cart, Payment, Shipping etc",
-      "1 year warranty",
+      "Content Calendar & Posting",
+      "Meta Ads Campaign Management",
+      "Audience Targeting & Optimization",
+      "Monthly Growth Reports",
+      "Dedicated Account Manager",
     ],
     highlight: true,
   },
   {
-    label: "Custom",
+    label: "Full Funnel",
     price: "50K+ Rs",
     cta: "Deposit Rs 999",
-    desc: "Special APPs, websites with new ideas and build something great. Startup ideas. Free 30 mins consultancy if paid now.",
+    desc: "Landing pages, lead-generation funnels, branding and content — a complete growth package tailored to your business. Free 30 mins consultancy if paid now.",
     features: [
-      "Brain Storming",
-      "Responsive, Dynamic UI",
-      "Custom Backend & APIs",
-      "Scalable Architecture",
-      "1 year warranty",
+      "Landing Page / Website",
+      "Lead Generation Funnel",
+      "Branding & Content Creation",
+      "Custom Growth Strategy",
+      "Ongoing Optimization",
     ],
     highlight: false,
   },
@@ -66,7 +66,7 @@ export function Pricing() {
         </div>
 
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 leading-tight">
-          My <span className="text-primary">Pricing</span>
+          Our <span className="text-primary">Pricing</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">

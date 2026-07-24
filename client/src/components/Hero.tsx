@@ -48,24 +48,24 @@ export function Hero() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] mb-6" data-testid="text-hero-title">
-              I'm The Clever Work
+              We Are The Clever Work
               <br />
               <span className="inline-flex items-center gap-3">
                 <DiamondStar />
-                <span className="text-primary">Full Stack</span>
+                <span className="text-primary">Digital Marketing</span>
               </span>
               <br />
-              Developer
+              Agency
             </h1>
 
             <p className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
-              i will create a great looking and fully functional Website / APP for you.
-              With <span className="text-foreground font-semibold">12Y Exp</span>, i know what i am doing.
+              We help brands grow online with SEO, paid ads, social media and high-converting websites.
+              With <span className="text-foreground font-semibold">12+ Years Exp</span>, we know what moves the needle.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+                href="https://wa.me/918766350093?text=Hi,%20I%20found%20you%20at%20thecleverwork%20and%20I'm%20looking%20for%20digital%20marketing%20services.%20I'd%20like%20to%20know%20more."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="trk-btn trk-btn--primary"
@@ -83,7 +83,7 @@ export function Hero() {
                 <span className="play-icon">
                   <Play className="w-4 h-4" />
                 </span>
-                Watch my work
+                See our work
               </a>
             </div>
           </motion.div>
@@ -96,7 +96,7 @@ export function Hero() {
           >
             <img
               src="/images/profile/hero.png"
-              alt="The Clever Work - Full Stack Developer"
+              alt="The Clever Work - Digital Marketing Agency"
               className="w-full max-w-[400px] lg:max-w-[500px] mx-auto"
               style={{ borderRadius: '40px' }}
               data-testid="img-hero-profile"

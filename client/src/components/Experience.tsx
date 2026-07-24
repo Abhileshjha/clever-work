@@ -11,59 +11,59 @@ const SparkleIcon = () => (
 );
 
 const technologies = [
-  { img: "/images/tech/58482ec0cef1014c0b5e4a70.png", label: "Shopify" },
-  { img: "/images/tech/3.png", label: "PHP" },
-  { img: "/images/tech/4.png", label: "Wordpress" },
-  { img: "/images/tech/5.png", label: "Javascript" },
-  { img: "/images/tech/6.png", label: "PHP CI" },
-  { img: "/images/tech/7.png", label: "Android APP" },
-  { img: "/images/tech/8.png", label: "IOS APP" },
-  { img: "/images/tech/2.png", label: "Google Ads" },
+  { label: "SEO" },
+  { label: "Google Ads" },
+  { label: "Meta Ads" },
+  { label: "Social Media" },
+  { label: "Email Marketing" },
+  { label: "Content" },
+  { label: "Branding" },
+  { label: "Analytics" },
 ];
 
 const services = [
   {
-    title: "Web Design",
-    desc: "I am a full time professional freelancer. i work for clients around the world and i have been developing websites and APPs since last 11 years. There is absolutely no website or APP that i can not work on. Pricing starts with 20K Rs, I can make all types of Web, Call now at 8766350093",
+    title: "SEO & Google Ads",
+    desc: "We help you rank higher on Google and get found by customers actively searching for what you offer. On-page SEO, keyword research and hands-on Google Ads management. Call now at 8766350093 for a free audit.",
   },
   {
-    title: "APP Development",
-    desc: "Hello i am a full time professional freelancer. i work for clients around the world and i have been developing websites since last 10 year. There is absolutely no website or APP that i can not work on.",
+    title: "Social Media & Meta Ads",
+    desc: "We grow your brand on Instagram and Facebook with consistent content, community management and performance-driven Meta Ads campaigns. Optimizing ads and targeting the right audience is where we add the most value.",
   },
   {
-    title: "Consultation.",
-    desc: "if you have an idea, you need to execute now. Lets book a 45 Minutes consultation for a step by step execution plan.",
+    title: "Lead Generation & Web Design",
+    desc: "High-converting landing pages and lead-capture funnels built to turn visitors into customers. We have been building websites and funnels for more than 11 years.",
   },
   {
-    title: "Marketing",
-    desc: "We run facebook, Google, youtube and Instagram Ads. We have more than 10 Years of Experience. Optimizing ads and selecting right Audience is most important part of digital marketing and i have enough expertise there.",
+    title: "Branding & Content",
+    desc: "Brand identity, messaging and content creation that makes your business memorable. If you have an idea, let's book a 45 minute consultation for a step-by-step growth plan.",
   },
 ];
 
 const timeline = [
   {
     year: "2025",
-    subtitle: "1K + Projects delivered",
-    title: "1K+ Projects.",
-    desc: "I have a full grown consultancy and development business. i can build you tech with great Quality.",
+    subtitle: "1K+ campaigns delivered",
+    title: "1K+ Campaigns.",
+    desc: "We're a full-grown marketing consultancy and development business. We help you grow with data-driven strategy and great execution.",
   },
   {
     year: "2020",
     subtitle: "Started NGF132.",
     title: "Own Startup",
-    desc: "Executed startup NGF132 which is currently worth 50CR, with 6L users.",
+    desc: "Built and scaled our own startup NGF132, now worth 50Cr with 6L+ users - using the same growth playbook we apply for clients.",
   },
   {
     year: "August 2015 to 2020",
     subtitle: "Worked for Delhi Gov.",
     title: "Gov. contract",
-    desc: "With 6 team members now, worked for Delhi gov, Made ID card system, QR based tech. Worked for Izenica (Apple india)",
+    desc: "With a 6-person team, delivered an ID card system and QR-based tech for the Delhi government. Also worked with Izenica (Apple India).",
   },
   {
     year: "2010-2015",
-    subtitle: "Freelancing with 2 team members",
-    title: "freelancer",
-    desc: "Started freelancing in 2010 with myself and hired 2 more people to join me till 2015. Worked with Honda, Sleepwell and Suzuki",
+    subtitle: "Started as a 3-person team",
+    title: "Agency Roots",
+    desc: "Started in 2010 with a small team of 3, working with brands like Honda, Sleepwell and Suzuki.",
   },
 ];
 
@@ -110,7 +110,7 @@ export function Experience() {
           >
             <div className="sparkle-badge">
               <SparkleIcon />
-              i know what i am doing.
+              We know what moves the needle.
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
@@ -119,13 +119,12 @@ export function Experience() {
             </h2>
 
             <p className="text-muted-foreground mb-8 leading-relaxed text-base max-w-lg">
-              i started designing website in 2009 and since then i have developed more than 1000+ websites and APPs.
-              Some of my best works are mentioned below.
-              I have been doing this for more than 12 years.
+              We started in 2009 and since then we've run 1000+ marketing campaigns and built high-converting
+              websites for brands across industries. Some of our best work is featured below.
             </p>
 
             <a
-              href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+              href="https://wa.me/918766350093?text=Hi,%20I%20found%20you%20at%20thecleverwork%20and%20I'm%20looking%20for%20digital%20marketing%20services.%20I'd%20like%20to%20know%20more."
               target="_blank"
               rel="noopener noreferrer"
               className="trk-btn trk-btn--primary mb-10"
@@ -141,9 +140,8 @@ export function Experience() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 + i * 0.05 }}
-                  className="tech-grid-item"
+                  className="tech-grid-item rounded-xl border border-border bg-card"
                 >
-                  <img src={tech.img} alt={tech.label} />
                   <p>{tech.label}</p>
                 </motion.div>
               ))}
@@ -164,15 +162,15 @@ export function Experience() {
         <div className="mt-24">
           <div className="sparkle-badge">
             <SparkleIcon />
-            What i did in last 12 years
+            What we've done in the last 12 years
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
-            My <span className="text-primary">Experience</span>
+            Our <span className="text-primary">Journey</span>
           </h2>
 
           <a
-            href="https://wa.me/918766350093?text=Hi,%20i%20found%20you%20at%20thecleverwork%20i%20am%20looking%20for%20a%20Website%20/%20APP.%20i%20would%20like%20to%20know%20about%20the%20Quote."
+            href="https://wa.me/918766350093?text=Hi,%20I%20found%20you%20at%20thecleverwork%20and%20I'm%20looking%20for%20digital%20marketing%20services.%20I'd%20like%20to%20know%20more."
             target="_blank"
             rel="noopener noreferrer"
             className="trk-btn trk-btn--primary mb-12"

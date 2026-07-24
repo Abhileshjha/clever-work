@@ -8,7 +8,7 @@ const BlueAsterisk = () => (
   </svg>
 );
 
-const techs = ["PHP", "Shopify", "Wordpress", "eCom", "APPs", "Web"];
+const techs = ["SEO", "Google Ads", "Social Media", "Meta Ads", "Lead Generation", "Web Design", "Branding", "Content"];
 
 export function TechStack() {
   const items = [...techs, ...techs, ...techs, ...techs];
